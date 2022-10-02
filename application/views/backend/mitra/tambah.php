@@ -1,34 +1,3 @@
-<!-- Meta -->
-<?php $this->load->view('backend/template/meta') ?>
-
-<div class="wrapper">
-
-  <!-- Navbar -->
-  <?php $this->load->view('backend/template/navbar') ?>  
-
-  <!-- Main Sidebar Container -->
-  <?php $this->load->view('backend/template/sidebar') ?>  
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark"><?php echo $page_title ?></h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active"><?php echo $page_title ?></li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -37,19 +6,19 @@
           <div class="col-lg-6">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">Tambah Mitra</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form role="form">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="id_mitra">ID Mitra</label>
+                    <input type="text" class="form-control" id="id_mitra" placeholder="Enter Nama Mitra">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="nama_mitra">Nama Mitra</label>
+                    <input type="text" class="form-control" id="nama_mitra" placeholder="Masukkan Nama Mitra">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File input</label>
@@ -125,14 +94,3 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
-  <!-- Footer -->
-  <?php $this->load->view('backend/template/footer') ?>  
-
-</div>
-<!-- ./wrapper -->
-
-<!-- JS -->
-<?php $this->load->view('backend/template/js') ?>  
-</body>
-</html>

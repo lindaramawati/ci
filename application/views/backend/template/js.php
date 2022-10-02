@@ -53,9 +53,6 @@
 <script src="<?php echo base_url('assets/plugins/bootstrap')?>/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-<!-- AdminLTE for demo purposes -->
-<script src="assets/dist/js/demo.js"></script>
-<script src="<?php echo base_url('assets/dist')?>/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {

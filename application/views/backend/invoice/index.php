@@ -9,14 +9,17 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+              <td>
+                      <button type="button" class="btn btn-block btn-primary btn-lg">Primary</button>
+                    </td>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>ID Pengiriman</th>
+                    <th>Nama Mitra</th>
+                    <th>Alamat</th>
+                    <th>No.hp</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -42,15 +45,6 @@
                     <td>U</td>
                   </tr>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->
