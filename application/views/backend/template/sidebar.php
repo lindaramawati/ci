@@ -29,12 +29,11 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-header">EXAMPLES</li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Pages
+                Penjualan
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -46,21 +45,52 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/artikel/tambah') ?>" class="nav-link">
+                <a href="<?= base_url('admin/profil') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profile</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/projects.html" class="nav-link">
+                <a href="<?= base_url('admin/mitra') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mitra</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/project-add.html" class="nav-link">
+                <a href="<?= base_url('admin/order') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Order</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url('admin/surat_jalan') ?>" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Surat Jalan
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Produk & Stok
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('admin/produk') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Produk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/stok') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stok</p>
                 </a>
               </li>
             </ul>
