@@ -27,21 +27,21 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- DataTable -->
-  <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-bs4')?>/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-responsive')?>/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-buttons')?>/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/dist')?>/css/adminlte.min.css">
   <!-- jsGrid -->
-  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid.min.css">
-  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid-theme.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins')?>/jsgrid/jsgrid.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins')?>/jsgrid/jsgrid-theme.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/fontawesome-free')?>/css/all.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins')?>/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/dist')?>/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

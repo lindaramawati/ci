@@ -1,5 +1,5 @@
-    <!-- Main content -->
-    <section class="content">
+ <!-- Main content -->
+ <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
@@ -10,20 +10,20 @@
               <form role="form">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="id_mitra">No Mitra</label>
-                    <input type="text" class="form-control" id="id_mitra" placeholder="Enter Nomer Mitra">
+                    <label for="id_pemesanan">No Pemesanan</label>
+                    <input type="text" class="form-control" id="id_pemesanan" placeholder="Enter Nomer Pengiriman">
                   </div>
                   <div class="form-group">
-                    <label for="nama_mitra">Nama</label>
-                    <input type="text" class="form-control" id="nama_mitra" placeholder="Masukkan Nama Mitra">
+                    <label for="tanggal_pesanan">Tanggal Pesanan</label>
+                    <input type="text" class="form-control" id="tanggal_pesanan" placeholder="Masukkan Tanggal Pesanan">
                   </div>
                   <div class="form-group">
-                    <label for="alamat_mitra">Alamat</label>
-                    <input type="alamat_mitra" name="alamat_mitra" class="form-control" id="alamat_mitra" placeholder="Masukkan email">
+                    <label for="jumlah_pesanan">Jumlah Pesanan</label>
+                    <input type="text" name="jumlah_pesanan" class="form-control" id="jumlah_pesanan" placeholder="Masukkan Jumlah Pesanan">
                   </div>
                   <div class="form-group">
-                    <label for="nomer_mitra">No Telepon</label>
-                    <input type="text" class="form-control" id="nomer_mitra" placeholder="Masukkan No Telepon">
+                    <label for="nama_mitra">Nama Mitra</label>
+                    <input type="text" class="form-control" id="nama_mitra" placeholder="Masukkan Telpon Seluler">
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -32,6 +32,7 @@
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
+              
             </div>
           </div>
         </div>

@@ -45,24 +45,20 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/profil') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/mitra') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Mitra</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="<?= base_url('admin/order') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Order</p>
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url('admin/mitra') ?>" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Mitra
+              </p>
+            </a>
           </li>
           <li class="nav-item">
             <a href="<?= base_url('admin/surat_jalan') ?>" class="nav-link">
