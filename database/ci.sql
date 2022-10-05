@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Okt 2022 pada 16.21
+-- Waktu pembuatan: 05 Okt 2022 pada 16.35
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
@@ -58,7 +58,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `name`, `username`, `password`) VALUES
-(1, 'Dian', 'dian', 'f97de4a9986d216a6e0fea62b0450da9'),
 (2, 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 --
