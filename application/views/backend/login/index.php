@@ -2,9 +2,15 @@
 <div class="card">
                 <div class="card-body login-card-body">
                     <p class="login-box-msg">Login Terlebih Dahulu sebelum Memasuki Aplikasi</p>
-                    <form action="#" method="post">
+                    <?php
+                    $info = $this->session->flashdata('info');
+                    if(!empty($info)){
+                      echo $info;
+                    }
+                    ?>
+                    <form action="<?php echo site_url('login/ceklogin') ?>" method="post">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" name="username" class="form-control" placeholder="Username">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -12,7 +18,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" name="password" class="form-control" placeholder="Password">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
