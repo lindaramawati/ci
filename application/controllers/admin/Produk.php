@@ -5,6 +5,9 @@ class Produk extends CI_Controller {
 	
 	public function index()
 	{
+		$this->load->model('model_login');
+		$this->model_login->keamanan();
+		
 		$data['page_title']       = 'Daftar Produk';
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
