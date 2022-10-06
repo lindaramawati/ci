@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?php echo $page_title ?></title>
+  <link rel="icon" type="image/jpg" sizes="16x16" href="<?php echo base_url('assets')?>/image/mandiri.jpg">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
