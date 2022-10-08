@@ -52,7 +52,7 @@ class Invoice extends CI_Controller {
 	}
 
 	public function detail(){
-		$data['page_title']       = 'Hapus Data Invoice';
+		$data['page_title']       = 'Detail Data Invoice';
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
 		$this->load->view('backend/template/sidebar');

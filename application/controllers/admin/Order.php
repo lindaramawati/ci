@@ -52,7 +52,7 @@ class Order extends CI_Controller {
 	}
 
 	public function detail(){
-		$data['page_title']       = 'Hapus Data Order';
+		$data['page_title']       = 'Detail Data Order';
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
 		$this->load->view('backend/template/sidebar');
