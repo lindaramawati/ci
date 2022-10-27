@@ -24,7 +24,6 @@ class Model_login extends CI_Model {
   }
  }
 
-
  public function keamanan(){
   $username = $this->session->userdata('username');
   if(empty($username)){
