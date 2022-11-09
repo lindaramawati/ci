@@ -1,4 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
+<a href="<?php echo site_url('') ?>" class="brand-link text-center">
+    <img src="<?php echo base_url('assets/dist')?>/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">Barang.id</span>
+  </a>
   <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -51,36 +55,21 @@
                   <p>Order</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/surat_jalan') ?>" class="nav-link">
+                  <i class="nav-icon 	fas fa-shipping-fast"></i>
+                  <p>Surat Jalan</p>
+                </a>
+              </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url('admin/surat_jalan') ?>" class="nav-link">
-              <i class="nav-icon 	fas fa-shipping-fast"></i>
-              <p>Surat Jalan</p>
-            </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="<?= base_url('admin/produk') ?>" class="nav-link">
               <i class="nav-icon fas fa-archive"></i>
               <p>
-                Produk & Stok
-                <i class="fas fa-angle-left right"></i>
+                Produk
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('admin/produk') ?>" class="nav-link">
-                  <i class="nav-icon fas fa-boxes"></i>
-                  <p>Produk</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/stok') ?>" class="nav-link">
-                  <i class="nav-icon fas fa-box"></i>
-                  <p>Stok</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="<?= base_url('Login/logout') ?>" class="nav-link">

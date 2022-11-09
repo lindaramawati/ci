@@ -1,5 +1,5 @@
 <?php
-class Model_mitra extends CI_Model {
+class Model_suratjalan extends CI_Model {
 
     public function get($table, $data = null, $where = null)
     {
@@ -11,29 +11,27 @@ class Model_mitra extends CI_Model {
     }
   
     public function tampilData() {
-    return $this->db->get_where("mitra");
+    return $this->db->get_where("surat_jalan");
   }
-  public function get_mitra($id){
+  public function get_suratjalan($id){
 
-    return $this->db->get_where('mitra', ['id_mitra'=>$id])-> row_array();
+    return $this->db->get_where('surat_jalan', ['id_sj'=>$id])-> row_array();
 
 }
 
 public function proses_edit()
 {
     $data = [
-        "nama_mitra" => $this->input->post('nama_mitra'),
-        "type" => $this->input->post('type'),
-        "alamat_mitra" => $this->input->post('alamat_mitra'),
-        "no_telepon" => $this->input->post('no_telepon')
+        "metode_pengiriman" => $this->input->post('metode_pengiriman'),
+        "nomer_kendaraan" => $this->input->post('nomer_kendaraan')
     ];
 
-    $this->db->where('id_mitra', $this->input->post('id'));
-    $this->db->update('mitra', $data);
+    $this->db->where('id_sj', $this->input->post('id'));
+    $this->db->update('surat_jalan', $data);
 }
 
   public function add($data) {
-    $this->db->insert('mitra', $data);
+    $this->db->insert('surat_jalan', $data);
   }
 
   public function getMax($table, $field, $kode = null)

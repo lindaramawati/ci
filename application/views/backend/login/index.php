@@ -9,20 +9,18 @@
     }
     ?>
     <form action="<?php echo site_url('login/ceklogin') ?>" method="post">
+    <label for="username">Username<label>
     <div class="input-group mb-3">
       <input type="text" name="username" class="form-control" placeholder="Username">
       <div class="input-group-append">
-        <div class="input-group-text">
-          <span class="fas fa-envelope"></span>
-        </div>
+        <div class="input-group-text"></div>
       </div>
     </div>
+    <label for="password">Password</label>
     <div class="input-group mb-3">
       <input type="password" name="password" class="form-control" placeholder="Password">
       <div class="input-group-append">
-        <div class="input-group-text">
-          <span class="fas fa-lock"></span>
-        </div>
+        <div class="input-group-text"></div>
       </div>
     </div>
     <div class="row">
@@ -39,12 +37,6 @@
       <!-- /.col -->
     </div>
   </form>
-  <p class="mb-1">
-    <a href="forgot-password.html">Lupa Password</a>
-  </p>
-  <p class="mb-0">
-    <a href="register.html" class="text-center">Registrasi</a>
-  </p>
 </div>
 <!-- /.login-card-body -->
 </div>

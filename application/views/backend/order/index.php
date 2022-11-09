@@ -6,7 +6,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="box-title">
-                  	<a href="<?php echo base_url(); ?>admin/order/tambah" class="btn btn-sm btn-info btn-flat"><i class="fa fa-edit"></i> Tambah</a>
+                  	<a href="<?php echo base_url(); ?>admin/order/tambah" class="btn btn-sm btn-info btn-flat"><i class="far fa-plus-square"></i> Tambah Order</a>
                   </h3>
               </div>
               <!-- /.card-header -->
@@ -18,7 +18,7 @@
                     <th>Tanggal Pemesanan</th>
                     <th>Jumlah</th>
                     <th>Mitra</th>
-                    <th>Aksi</th>
+                    <th>Detail</th>
                   </tr>
                   </thead>
                   <tbody>

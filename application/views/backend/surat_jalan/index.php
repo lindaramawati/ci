@@ -6,7 +6,7 @@
             <div class="card">
               <div class="card-header">
               
-                  <a href="<?php echo base_url(); ?>admin/mitra/tambah" class="btn btn-sm btn-info btn-flat"><i class="far fa-plus-square"></i> Tambah Mitra</a>
+                  <a href="<?php echo base_url(); ?>admin/surat_jalan/tambah" class="btn btn-sm btn-info btn-flat"><i class="far fa-plus-square"></i> Tambah Surat Jalan</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -14,29 +14,25 @@
               <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>ID Mitra</th>
-                    <th>Nama Mitra</th>
-                    <th>Type</th>
-                    <th>Alamat Mitra</th>
-                    <th>Nomer Telepon</th>
+                    <th>No</th>
+                    <th>Metode Pengiriman</th>
+                    <th>Nomer Kendaraan</th>
                     <th>Edit</th>
                     <th>Hapus</th>
                   </tr>
                   </thead>
                   <?php
                   $no = 1;
-                  foreach ($mitra as $mitra) :
+                  foreach ($surat_jalan as $surat_jalan) :
                   ?>
                   <tbody>
                     <td><?php echo $no++?></td>
-                    <td><?php echo $mitra->nama_mitra ?></td>
-                    <td><?php echo $mitra->type ?></td>
-                    <td><?php echo $mitra->alamat_mitra ?></td>
-                    <td><?php echo $mitra->no_telepon ?></td>
+                    <td><?php echo $surat_jalan->metode_pengiriman ?></td>
+                    <td><?php echo $surat_jalan->nomer_kendaraan ?></td>
 
                     <td>
                         <?php echo anchor(
-                            'admin/mitra/edit/' . $mitra->id_mitra,
+                            'admin/Surat_jalan/edit/' . $surat_jalan->id_sj,
                             '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
                         ) ?>
                         <!-- <button class="btn btn-warning btn-sm fas fa-edit" data-toggle="modal" data-target="#EditProduk"></button> -->
@@ -44,11 +40,11 @@
                     </td>
 
                     <td>
-                        <!-- <a class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" href="<?php echo base_url('admin/mitra/hapus_data/') ?>/<?php echo $mitra->id_mitra ?>">
+                        <!-- <a class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" href="<?php echo base_url('admin/surat_jalan/hapus_data/') ?>/<?php echo $surat_jalan->id_sj ?>">
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                        <a onclick="deleteConfirm('<?php echo site_url('admin/Mitra/hapus/' . $mitra->id_mitra) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                        <a onclick="deleteConfirm('<?php echo site_url('admin/Surat_jalan/hapus/' . $surat_jalan->id_sj) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
                     </td>
                   <?php endforeach; ?>
                 </table>

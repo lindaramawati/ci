@@ -1,5 +1,5 @@
 <?php
-class Model_mitra extends CI_Model {
+class Model_invoice extends CI_Model {
 
     public function get($table, $data = null, $where = null)
     {
@@ -11,11 +11,11 @@ class Model_mitra extends CI_Model {
     }
   
     public function tampilData() {
-    return $this->db->get_where("mitra");
+    return $this->db->get_where("invoice");
   }
-  public function get_mitra($id){
+  public function get_invoice($id){
 
-    return $this->db->get_where('mitra', ['id_mitra'=>$id])-> row_array();
+    return $this->db->get_where('invoice', ['id_invoice'=>$id])-> row_array();
 
 }
 
@@ -23,17 +23,15 @@ public function proses_edit()
 {
     $data = [
         "nama_mitra" => $this->input->post('nama_mitra'),
-        "type" => $this->input->post('type'),
-        "alamat_mitra" => $this->input->post('alamat_mitra'),
-        "no_telepon" => $this->input->post('no_telepon')
+        "jumlah_pengiriman" => $this->input->post('jumlah_pengiriman')
     ];
 
-    $this->db->where('id_mitra', $this->input->post('id'));
-    $this->db->update('mitra', $data);
+    $this->db->where('id_invoice', $this->input->post('id'));
+    $this->db->update('invoice', $data);
 }
 
   public function add($data) {
-    $this->db->insert('mitra', $data);
+    $this->db->insert('invoice', $data);
   }
 
   public function getMax($table, $field, $kode = null)
