@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2022 at 04:11 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.28
+-- Waktu pembuatan: 14 Nov 2022 pada 02.53
+-- Versi server: 10.4.17-MariaDB
+-- Versi PHP: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice`
+-- Struktur dari tabel `invoice`
 --
 
 CREATE TABLE `invoice` (
@@ -34,19 +34,18 @@ CREATE TABLE `invoice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `invoice`
+-- Dumping data untuk tabel `invoice`
 --
 
 INSERT INTO `invoice` (`id_invoice`, `nama_mitra`, `jumlah_pengiriman`) VALUES
 (1, 'Vian', '22'),
 (2, 'Maju', '5'),
-(3, 'Tu', '5'),
-(4, 'Maju', '5');
+(3, 'Tu', '56');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Struktur dari tabel `login`
 --
 
 CREATE TABLE `login` (
@@ -55,7 +54,7 @@ CREATE TABLE `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `login`
+-- Dumping data untuk tabel `login`
 --
 
 INSERT INTO `login` (`username`, `password`) VALUES
@@ -65,7 +64,7 @@ INSERT INTO `login` (`username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mitra`
+-- Struktur dari tabel `mitra`
 --
 
 CREATE TABLE `mitra` (
@@ -77,30 +76,43 @@ CREATE TABLE `mitra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mitra`
+-- Dumping data untuk tabel `mitra`
 --
 
 INSERT INTO `mitra` (`id_mitra`, `nama_mitra`, `type`, `alamat_mitra`, `no_telepon`) VALUES
 (1, 'Dew J', 'Tetap', 'Bangkok', '4356'),
-(2, 'Maju', 'Tetap', 'Jl. Kali', '1324');
+(2, 'Maju', 'Tetap', 'Jl. Kali', '1324'),
+(8, 'dsd', 'vds', 'fd', '7876'),
+(9, 'kjjhdg kjfgfhgfu', 'jhhuddfdfdffdgdshfdghdh', 'juhuhjuhd', '099876766'),
+(10, 'jcdjbjbcJnbcdj ', 'bjdbsjcbmhsdfb', 'fjhcjGZCJg', '978');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Struktur dari tabel `order`
 --
 
 CREATE TABLE `order` (
-  `id_pemesanan` int(11) NOT NULL,
-  `id_mitra` int(11) NOT NULL,
-  `tanggal_pemesanan` date NOT NULL,
-  `jumlah_pesanan` varchar(255) NOT NULL
+  `id_order` int(11) NOT NULL,
+  `nama_mitra` varchar(255) NOT NULL,
+  `tanggal_pemesanan` varchar(255) NOT NULL,
+  `jumlah_pesanan` varchar(255) NOT NULL,
+  `nama_produk` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `order`
+--
+
+INSERT INTO `order` (`id_order`, `nama_mitra`, `tanggal_pemesanan`, `jumlah_pesanan`, `nama_produk`) VALUES
+(3, 'dasdasfs', 'hdjdjdj', 'jsjjdj', 'jdjdjdjd'),
+(4, 'fggfsdgfsd', 'mcxndj', 'jdjsd', 'jdjfds'),
+(6, 'dfxgdfgd dfndjse', '6765n nfhjd 746', '777', 'jhhdhfdfbdjh');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -114,7 +126,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama_produk`, `type`, `stok`, `merk_produk`, `seri_produk`) VALUES
@@ -126,7 +138,7 @@ INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama_produk`, `type`, `stok`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_jalan`
+-- Struktur dari tabel `surat_jalan`
 --
 
 CREATE TABLE `surat_jalan` (
@@ -136,17 +148,18 @@ CREATE TABLE `surat_jalan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `surat_jalan`
+-- Dumping data untuk tabel `surat_jalan`
 --
 
 INSERT INTO `surat_jalan` (`id_sj`, `metode_pengiriman`, `nomer_kendaraan`) VALUES
 (1, 'JNE', 'AE 3578 VB'),
-(2, 'Sicepat', 'AD 4567 UI');
+(2, 'Sicepat', 'AD 4567 UI'),
+(4, 'vvdfzx', 'vdzvzdf');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -157,7 +170,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `name`, `username`, `password`) VALUES
@@ -168,78 +181,83 @@ INSERT INTO `user` (`id_user`, `name`, `username`, `password`) VALUES
 --
 
 --
--- Indexes for table `invoice`
+-- Indeks untuk tabel `invoice`
 --
 ALTER TABLE `invoice`
   ADD PRIMARY KEY (`id_invoice`);
 
 --
--- Indexes for table `login`
+-- Indeks untuk tabel `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `mitra`
+-- Indeks untuk tabel `mitra`
 --
 ALTER TABLE `mitra`
   ADD PRIMARY KEY (`id_mitra`);
 
 --
--- Indexes for table `order`
+-- Indeks untuk tabel `order`
 --
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`id_pemesanan`),
-  ADD KEY `id_mitra` (`id_mitra`);
+  ADD PRIMARY KEY (`id_order`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `surat_jalan`
+-- Indeks untuk tabel `surat_jalan`
 --
 ALTER TABLE `surat_jalan`
   ADD PRIMARY KEY (`id_sj`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `invoice`
+-- AUTO_INCREMENT untuk tabel `invoice`
 --
 ALTER TABLE `invoice`
   MODIFY `id_invoice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `mitra`
+-- AUTO_INCREMENT untuk tabel `mitra`
 --
 ALTER TABLE `mitra`
-  MODIFY `id_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `order`
+--
+ALTER TABLE `order`
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `surat_jalan`
+-- AUTO_INCREMENT untuk tabel `surat_jalan`
 --
 ALTER TABLE `surat_jalan`
-  MODIFY `id_sj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_sj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
