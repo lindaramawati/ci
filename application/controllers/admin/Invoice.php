@@ -24,6 +24,8 @@ class Invoice extends CI_Controller {
 	public function tambah(){
 		$data['page_title']       = 'Tambah Data Invoice';
 		$this->load->model('model_invoice');
+		$data['invoice']= $this->model_invoice->tampilData()->result();
+		$this->load->model('model_mitra');
 		$data['pelanggan'] = $this->model_mitra->tampilData()->result();
 
 		$this->load->view('backend/template/meta', $data);
