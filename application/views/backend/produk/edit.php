@@ -11,6 +11,10 @@
                 <input type="hidden" name="id" value="<?php echo $produk['id_produk'] ?>" id="id">
                 <div class="card-body">
                   <div class="form-group">
+                    <label for="id_produk">ID Produk</label>
+                    <input readonly type="text" class="form-control" name="id_produk" id="id_produk" value="<?php echo $produk['id_produk'] ?>" placeholder="Masukkan Nomer Produk">
+                  </div>
+                  <div class="form-group">
                     <label for="kode_produk">Kode Produk</label>
                     <input type="text" class="form-control" name="kode_produk" id="kode_produk" value="<?php echo $produk['kode_produk'] ?>" placeholder="Masukkan Nomer Produk">
                   </div>
@@ -23,8 +27,8 @@
                     <input type="text" class="form-control" name="type" id="type" value="<?php echo $produk['type'] ?>" placeholder="Masukkan Nama Kategori">
                   </div>
                   <div class="form-group">
-                    <label for="deskripsi_produk">Stok</label>
-                    <input type="text" class="form-control" name="stok" id="stok" value="<?php echo $produk['stok'] ?>" placeholder="Masukkan Deskripsi Produk">
+                    <label for="deskripsi_produk">jenis</label>
+                    <input type="text" class="form-control" name="jenis" id="jenis" value="<?php echo $produk['jenis'] ?>" placeholder="Masukkan Deskripsi Produk">
                   </div>
                   <div class="form-group">
                     <label for="unit">Merk</label>

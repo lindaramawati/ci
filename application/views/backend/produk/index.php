@@ -4,13 +4,16 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <div class="card-header">
-              
+                <div class="card-header">
+                <a href="<?php echo base_url(); ?>admin/kategori/index" class="btn btn-sm btn-warning btn-flat float-right"><i class="far fa-plus-square"></i> Tambah kategori</a>
+                </div>
+              <div class="card-header">        
                   <a href="<?php echo base_url(); ?>admin/produk/tambah" class="btn btn-sm btn-info btn-flat"><i class="far fa-plus-square"></i> Tambah Produk</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
               <?php echo $this->session->flashdata('message'); ?>
+
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -18,7 +21,7 @@
                     <th>Kode Produk</th>
                     <th>Nama Produk</th>
                     <th>Type</th>
-                    <th>Stok</th>
+                    <th>jenis</th>
                     <th>Merk</th>
                     <th>Seri</th>
                     <th>Edit</th>
@@ -30,11 +33,11 @@
                   foreach ($produk as $produk) :
                   ?>
                   <tbody>
-                    <td><?php echo $no++?></td>
+                    <td><?php echo $produk->id_produk?></td>
                     <td><?php echo $produk->kode_produk ?></td>
                     <td><?php echo $produk->nama_produk ?></td>
                     <td><?php echo $produk->type ?></td>
-                    <td><?php echo $produk->stok ?></td>
+                    <td><?php echo $produk->Jenis ?></td>
                     <td><?php echo $produk->merk_produk ?></td>
                     <td><?php echo $produk->seri_produk ?></td>
 
@@ -123,8 +126,8 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Stok</label>
-                                <input type="text" name="stok" class="form-control" required>
+                                <label>jenis</label>
+                                <input type="text" name="jenis" class="form-control" required>
                             </div>
 
                             <div class="form-group">
