@@ -11,19 +11,19 @@
                 <input type="hidden" name="id" value="<?php echo $mitra['id_mitra'] ?>" id="id">
                   <div class="form-group">
                     <label for="nama_mitra">Nama Mitra</label>
-                    <input type="text" name="nama_mitra" class="form-control" id="nama_mitra" value="<?php echo $mitra['nama_mitra'] ?>" placeholder="Masukkan Kode Mitra">
+                    <input type="text" name="nama_mitra" class="form-control" id="nama_mitra" value="<?php echo $mitra['nama_mitra'] ?>" placeholder="Masukkan Kode Mitra"required>
                   </div>
                   <div class="form-group">
                     <label for="type">Type</label>
-                    <input type="text" class="form-control" name="type" id="type" value="<?php echo $mitra['type'] ?>" placeholder="Masukkan Type">
+                    <input type="text" class="form-control" name="type" id="type" value="<?php echo $mitra['type'] ?>" placeholder="Masukkan Type"required>
                   </div>
                   <div class="form-group">
                     <label for="alamat_mitra">Alamat Mitra</label>
-                    <input type="text" class="form-control" name="alamat_mitra" id="alamat_mitra" value="<?php echo $mitra['alamat_mitra'] ?>" placeholder="Masukkan Alamat Mitra">
+                    <input type="text" class="form-control" name="alamat_mitra" id="alamat_mitra" value="<?php echo $mitra['alamat_mitra'] ?>" placeholder="Masukkan Alamat Mitra" required>
                   </div>
                   <div class="form-group">
                     <label for="no_telepon">Nomer Telepon</label>
-                    <input type="text" name="no_telepon" id="no_telepon" class="form-control"  value="<?php echo $mitra['no_telepon'] ?>" placeholder="Masukkan Nomer Telepon">
+                    <input type="text" name="no_telepon" id="no_telepon" class="form-control"  value="<?php echo $mitra['no_telepon'] ?>" placeholder="Masukkan Nomer Telepon" required>
                   </div>
                 </div>
                 <div class="card-footer">

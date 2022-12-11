@@ -11,19 +11,19 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="nama_mitra">Nama Mitra</label>
-                    <input type="text" name="nama_mitra" class="form-control" id="nama_mitra" placeholder="Masukkan Nama Mitra">
+                    <input type="text" name="nama_mitra" class="form-control" id="nama_mitra" placeholder="Masukkan Nama Mitra" required>
                   </div>
                   <div class="form-group">
                     <label for="type">Type</label>
-                    <input type="text" class="form-control" name="type" id="type" placeholder="Masukkan Type">
+                    <input type="text" class="form-control" name="type" id="type" placeholder="Masukkan Type" required>
                   </div>
                   <div class="form-group">
                     <label for="alamat_mitra">Alamat Mitra</label>
-                    <input type="text" class="form-control" name="alamat_mitra" id="alamat_mitra" placeholder="Masukkan Alamat Mitra">
+                    <input type="text" class="form-control" name="alamat_mitra" id="alamat_mitra" placeholder="Masukkan Alamat Mitra" required>
                   </div>
                   <div class="form-group">
                     <label for="no_telepon">Nomer Telepon</label>
-                    <input type="text" class="form-control" name="no_telepon" id="no_telepon" placeholder="Masukkan Nomer Telepon">
+                    <input type="text" class="form-control" name="no_telepon" id="no_telepon" placeholder="Masukkan Nomer Telepon" required>
                   </div>
                 </div>
                 <div class="card-footer">

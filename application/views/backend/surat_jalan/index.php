@@ -6,11 +6,23 @@
             <div class="card">
               <div class="card-header">
               
-                  <a href="<?php echo base_url(); ?>admin/surat_jalan/tambah" class="btn btn-sm btn-info btn-flat"><i class="far fa-plus-square"></i> Tambah Surat Jalan</a>
+              <a href="<?php echo base_url(); ?>admin/surat_jalan/tambah" class="btn btn-success"><i class="far fa-plus-square"></i> Tambah Surat Jalan</a>
+                  <a class="btn btn-primary" href="<?php echo base_url('admin/surat_jalan/print') ?>"><i class="fas fa-fw fa-print"></i> Print</a>
+              </div>
+              <div class="card-body">
+              <?php echo $this->session->flashdata('message'); ?>
+                <tr>
+                      <td colspan="4">
+                          <?php $attributes = array('class' => 'row'); ?>
+                          <?php echo form_open('admin/surat_jalan/search',$attributes);?>
+                              <input type="text" name="keyword" placeholder="Search" class="form-control col-md-5">
+                              <input type="submit" value="Cari" class="btn btn-warning col-md-1">
+                          <?php echo form_close();?>		
+                      </td>
+                </tr>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <?php echo $this->session->flashdata('message'); ?>
               <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -18,7 +30,6 @@
                     <th>Metode Pengiriman</th>
                     <th>Nomer Kendaraan</th>
                     <th>Edit</th>
-                    <th>Hapus</th>
                   </tr>
                   </thead>
                   <?php
@@ -31,21 +42,28 @@
                     <td><?php echo $surat_jalan->nomer_kendaraan ?></td>
 
                     <td>
-                        <?php echo anchor(
-                            'admin/Surat_jalan/edit/' . $surat_jalan->id_sj,
-                            '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
-                        ) ?>
-                        <!-- <button class="btn btn-warning btn-sm fas fa-edit" data-toggle="modal" data-target="#EditProduk"></button> -->
+                      <?php echo anchor(
+                                'admin/surat_jalan/detail/' . $surat_jalan->id_suratjalan,
+                                '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
+                            ) ?>
+                        </td>
 
-                    </td>
+                        <td>
+                            <?php echo anchor(
+                                'admin/surat_jalan/edit/' . $surat_jalan->id_suratjalan,
+                                '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
+                            ) ?>
+                        </td>
 
-                    <td>
-                        <!-- <a class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" href="<?php echo base_url('admin/surat_jalan/hapus_data/') ?>/<?php echo $surat_jalan->id_sj ?>">
+                        <td>
+                            <!-- <a class="btn btn-danger btn-sm" 
+                            onclick="return confirm('Apakah anda yakin ingin menghapus data?')"
+                            href="<?php echo base_url('admin/surat_jalan/hapus/') ?>/<?php echo $surat_jalan->id_suratjalan ?>">
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                        <a onclick="deleteConfirm('<?php echo site_url('admin/Surat_jalan/hapus/' . $surat_jalan->id_sj) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
-                    </td>
+                            <a onclick="deleteConfirm('<?php echo site_url('admin/surat_jalan/hapus/' . $surat_jalan->id_suratjalan) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                        </td>
                   <?php endforeach; ?>
                 </table>
               </div>

@@ -15,7 +15,7 @@ class Model_login extends CI_Model {
       );
    }
   $this->session->set_userdata($sess);
-  redirect('dashboard');
+  redirect('admin/dashboard');
   
   }
   else{

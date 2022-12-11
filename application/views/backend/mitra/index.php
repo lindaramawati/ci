@@ -6,11 +6,23 @@
             <div class="card">
               <div class="card-header">
               
-                  <a href="<?php echo base_url(); ?>admin/mitra/tambah" class="btn btn-sm btn-info btn-flat"><i class="far fa-plus-square"></i> Tambah Mitra</a>
+                  <a href="<?php echo base_url(); ?>admin/mitra/tambah" class="btn btn-success"><i class="far fa-plus-square"></i> Tambah Mitra</a>
+                  <a class="btn btn-primary" href="<?php echo base_url('admin/mitra/print') ?>"><i class="fas fa-fw fa-print"></i> Print</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
               <?php echo $this->session->flashdata('message'); ?>
+                <tr>
+                      <td colspan="4">
+                          <?php $attributes = array('class' => 'row'); ?>
+                          <?php echo form_open('admin/mitra/search',$attributes);?>
+                              <input type="text" name="keyword" placeholder="Search" class="form-control col-md-5">
+                              <input type="submit" value="Cari" class="btn btn-info col-md-1">
+                          <?php echo form_close();?>		
+                      </td>
+                </tr>
+              </div>
+              <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -19,8 +31,7 @@
                     <th>Type</th>
                     <th>Alamat Mitra</th>
                     <th>Nomer Telepon</th>
-                    <th>Edit</th>
-                    <th>Hapus</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <?php
@@ -33,23 +44,25 @@
                     <td><?php echo $mitra->type ?></td>
                     <td><?php echo $mitra->alamat_mitra ?></td>
                     <td><?php echo $mitra->no_telepon ?></td>
-
                     <td>
-                        <?php echo anchor(
-                            'admin/mitra/edit/' . $mitra->id_mitra,
-                            '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
-                        ) ?>
-                        <!-- <button class="btn btn-warning btn-sm fas fa-edit" data-toggle="modal" data-target="#EditProduk"></button> -->
+                        <td>
+                            <?php echo anchor(
+                                'admin/mitra/edit/' . $mitra->id_mitra,
+                                '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
+                            ) ?>
+                        </td>
 
-                    </td>
-
-                    <td>
-                        <!-- <a class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" href="<?php echo base_url('admin/mitra/hapus_data/') ?>/<?php echo $mitra->id_mitra ?>">
+                        <td>
+                            <!-- <a class="btn btn-danger btn-sm" 
+                            onclick="return confirm('Apakah anda yakin ingin menghapus data?')"
+                            href="<?php echo base_url('admin/mitra/hapus/') ?>/<?php echo $mitra->id_mitra ?>">
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                        <a onclick="deleteConfirm('<?php echo site_url('admin/Mitra/hapus/' . $mitra->id_mitra) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                            <a onclick="deleteConfirm('<?php echo site_url('admin/mitra/hapus/' . $mitra->id_mitra) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                        </td>
                     </td>
+                    
                   <?php endforeach; ?>
                 </table>
               </div>

@@ -44,7 +44,20 @@ public function proses_edit()
         }
         return $this->db->get($table)->row_array()[$field];
     }
-    
+    public function search($search="")
+	{
+		$this->db->like('nama_mitra', $search);
+		return $this->db->get($this->table)->result();
+	}
+    public function get_keyword($keyword){
+        $this->db->select('*');
+        $this->db->from('mitra');
+        $this->db->like('nama_mitra', $keyword);
+        $this->db->or_like('type', $keyword);
+        $this->db->or_like('alamat_mitra', $keyword);
+        $this->db->or_like('no_telepon', $keyword);
+        return $this->db->get()->result();
+    }
 
 
 

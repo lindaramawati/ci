@@ -24,20 +24,76 @@ class Produk extends CI_Controller {
 		$this->load->view('backend/template/footer');
 		$this->load->view('backend/template/js');
 	}
-	public function tambah(){
+	private function _validasi()
+    {
+        $this->form_validation->set_rules('kode_produk', 'Kode Produk', 'required|trim|max_length[4]|numeric');
+        $this->form_validation->set_rules('nama_produk', 'Nama produk', 'required|trim');
+		$this->form_validation->set_rules('type', 'Type produk', 'trim|alpha');
+        $this->form_validation->set_rules('jenis', 'Jenis produk', 'required');
+        $this->form_validation->set_rules('merk_produk', 'Merk produk', 'trim');
+        $this->form_validation->set_rules('seri_produk', 'Seri produk', 'trim');
+    }
+	public function tambah()
+    {
 		$this->load->model('model_produk');
-		$data['jenis'] = $this->model_produk->data()->result();
+        $this->_validasi();
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = "ATK";
+            $data['jenis'] = $this->model_produk->get('jenis');
+			$data['jenis'] = $this->model_produk->tampilJenis()->result();
+
+            // Mengenerate ID produk
+            $kode_terakhir = $this->model_produk->getMax('produk', 'id_produk');
+            $kode_tambah = substr($kode_terakhir, -6, 6);
+            $kode_tambah++;
+            $number = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
+            $data['id_produk'] = 'B' . $number;
+
+            // $data['kode_barang'] = $number;
+            // $kode = $this->admin->getMax('barang', 'kode_barang');
+            // $count = mysqli_num_rows($kode);
+			$data['page_title']       = 'Tambah Data Produk';
+			$this->load->view('backend/template/meta', $data);
+			$this->load->view('backend/template/navbar');
+			$this->load->view('backend/template/sidebar');
+			$this->load->view('backend/template/header');
+			$this->load->view('backend/produk/tambah', $data);
+			$this->load->view('backend/template/footer');
+			$this->load->view('backend/template/js');
+
+            // $this->template->load('backend/produk/tambah', 'produk/tambah', $data);
+			
+        } else {
+            $input = $this->input->post(null, true);
+            $insert = $this->admin->insert('produk', $input);
+
+            if ($insert) {
+                set_pesan('data berhasil disimpan');
+                redirect('barang');
+            } else {
+                set_pesan('gagal menyimpan data');
+                redirect('barang/add');
+            }
+        }
+    }
+	// public function tambah(){
+	// 	$this->load->model('model_produk');
+	// 	$data['jenis'] = $this->model_produk->tampilJenis()->result();
+	
+	
 
 
-		$data['page_title']       = 'Tambah Data Produk';
-		$this->load->view('backend/template/meta', $data);
-		$this->load->view('backend/template/navbar');
-		$this->load->view('backend/template/sidebar');
-		$this->load->view('backend/template/header');
-		$this->load->view('backend/produk/tambah');
-		$this->load->view('backend/template/footer');
-		$this->load->view('backend/template/js');
-	}
+
+		// $data['page_title']       = 'Tambah Data Produk';
+		// $this->load->view('backend/template/meta', $data);
+		// $this->load->view('backend/template/navbar');
+		// $this->load->view('backend/template/sidebar');
+		// $this->load->view('backend/template/header');
+		// $this->load->view('backend/produk/tambah');
+		// $this->load->view('backend/template/footer');
+		// $this->load->view('backend/template/js');
+	// }
 	public function proses_tambah(){
 
 		$this->load->model(['model_produk']);
@@ -113,15 +169,43 @@ class Produk extends CI_Controller {
 		redirect(base_url('admin/produk/index'));
 	}
 
-	public function detail(){
+	public function detail($id_produk){
 		$data['page_title']       = 'Detail Data Produk';
+		$this->load->model('model_produk');
+		$data['produk']= $this->model_produk->tampilData()->result();
+	
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
 		$this->load->view('backend/template/sidebar');
 		$this->load->view('backend/template/header');
-		$this->load->view('backend/produk/detail');
+		$this->load->view('backend/produk/detail', $data);
 		$this->load->view('backend/template/footer');
 		$this->load->view('backend/template/js');
 	}
+
+	public function print()
+    {
+		$this->load->model('model_produk');
+        $data['produk'] = $this->model_produk->tampilData()->result();
+		
+
+		$this->load->view('backend/produk/print', $data);
+    } 
+
+	public function search()
+    {
+		$data['page_title']       = ' Data Produk';
+		$this->load->model('model_produk');
+        $keyword = $this->input->post('keyword');
+        $data['produk'] = $this->model_produk->get_keyword($keyword);
+
+		$this->load->view('backend/template/meta', $data);
+		$this->load->view('backend/template/navbar');
+		$this->load->view('backend/template/sidebar');
+		$this->load->view('backend/template/header');
+		$this->load->view('backend/produk/index');
+		$this->load->view('backend/template/footer');
+		$this->load->view('backend/template/js');
+    }
 }
 ?>

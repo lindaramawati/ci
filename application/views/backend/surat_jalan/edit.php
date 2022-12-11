@@ -7,8 +7,8 @@
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" role="form" action="<?php echo base_url('admin/surat_jalan/proses_edit_data/' . $surat_jalan['id_sj']) ?>">
-                <input type="hidden" name="id" value="<?php echo $surat_jalan['id_sj'] ?>" id="id">
+              <form method="post" role="form" action="<?php echo base_url('admin/surat_jalan/proses_edit_data/' . $surat_jalan['id_suratjalan']) ?>">
+                <input type="hidden" name="id" value="<?php echo $surat_jalan['id_suratjalan'] ?>" id="id">
                   <div class="form-group">
                     <label for="metode_pengiriman">Metode Pengiriman</label>
                     <input type="text" name="metode_pengiriman" class="form-control" id="metode_pengiriman" value="<?php echo $surat_jalan['metode_pengiriman'] ?>" placeholder="Masukkan Metode Pengiriman">

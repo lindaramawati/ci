@@ -12,6 +12,11 @@ class Model_produk extends CI_Model {
     ("produk");
     
   }
+  public function tampilJenis() {
+    return $this->db->get_where
+    ("jenis");
+    
+  }
   
   public function get_produk($id){
 
@@ -53,21 +58,53 @@ public function proses_edit_kategori()
   public function add($data) {
     $this->db->insert('mitra', $data);
   }
+  public function get($table, $data = null, $where = null)
+  {
+      if ($data != null) {
+          return $this->db->get_where($table, $data)->row_array();
+      } else {
+          return $this->db->get_where($table, $where)->result_array();
+      }
+  }
 
-  public function getMax($table = null, $field = null)
+//   public function getMax($table = null, $field = null)
+//     {
+//         $this->db->select_max($field);
+//         return $this->db->get($table)->row_array()[$field];
+//     }
+    public function getMax($table, $field, $kode = null)
     {
         $this->db->select_max($field);
+        if ($kode != null) {
+            $this->db->like($field, $kode, 'after');
+        }
         return $this->db->get($table)->row_array()[$field];
     }
+    public function getMaxCountKodebarang($table, $field, $kode = null)
+    {
+        $this->db->select_max($field);
 
-public function datakategori()
-{
+        if ($kode != null) {
+            $this->db->like($field, $kode, 'after');
+        }
+        return $this->db->get($table)->row_array()[$field];
+    }
+    public function datakategori()
+    {
     return $this->db->get_where("kategori");
-}
-    
+    }
 
-
-
+    public function get_keyword($keyword){
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->like('kode_produk', $keyword);
+        $this->db->or_like('nama_produk', $keyword);
+        $this->db->or_like('type', $keyword);
+        $this->db->or_like('Jenis', $keyword);
+        $this->db->or_like('merk_produk', $keyword);
+        $this->db->or_like('seri_produk', $keyword);
+        return $this->db->get()->result();
+    }
 }
 
 ?>

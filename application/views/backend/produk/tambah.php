@@ -26,36 +26,41 @@
                   </div>
                   <div class="form-group">
                     <label for="kode_produk">kode Produk</label>
-                    <input readonly type="text" class="form-control" name="kode_produk" id="kode_produk" placeholder="Masukkan Nomer Produk">
+                    <input readonly value="<?= set_value('kode_produk'); ?>" name="kode_produk" id="kode_produk" type="text" class="form-control" placeholder="Kode Barang..." required>
+                        <?= form_error('kode_produk', '<small class="text-danger">', '</small>'); ?>
                   </div>
+                  
                   <div class="form-group">
                     <label for="nama_produk">Nama Produk</label>
-                    <input type="text" name="nama_produk" class="form-control" id="nama_produk" placeholder="Masukkan Nama Produk">
+                    <input type="text" name="nama_produk" class="form-control" id="nama_produk" placeholder="Masukkan Nama Produk" required>
                   </div>
                   <div class="form-group">
                     <label for="type">Type</label>
-                    <input type="text" class="form-control" name="type" id="type" placeholder="Masukkan Nama Kategori">
+                    <input type="text" class="form-control" name="type" id="type" placeholder="Masukkan Nama Kategori" required>
                   </div>
                   <div class="form-group">
                     <label for="jenis">jenis</label>
                   
                     <div class="col-12 col-md-9">
-                      <select name="jenis" id="jenis" class="form-control">
+                      <select name="jenis" id="id_jenis" class="form-control">
                         <option value="" hidden>Pilih</option>
-                        <?php foreach ($jenis as $key): ?>
-                          <option value="<?php echo $key->nama_kategori?>"><?php echo $key->nama_kategori . ' | ' . $key->kode_kategori?></option>
-                        <?php endforeach; ?>
+                        <?php foreach ($jenis as $key){
+                          echo "<option value='".$key->nama_jenis."'>".$key->nama_jenis."</option>";
+		                                               }
+		                                       echo"
+		                                    </select>"
+	                              	?>              
                       </select>
                     </div>
                      
                   </div>
                   <div class="form-group">
                     <label for="merk">merk</label>
-                    <input type="text" class="form-control" name="merk" id="merk" placeholder="Masukkan Unit">
+                    <input type="text" class="form-control" name="merk" id="merk" placeholder="Masukkan Merk" required>
                   </div>
                   <div class="form-group">
                     <label for="seri">seri</label>
-                    <input type="text" class="form-control" name="seri" id="seri" placeholder="Masukkan Unit">
+                    <input type="text" class="form-control" name="seri" id="seri" placeholder="Masukkan Unit" required>
                   </div>
                 </div>
                 <div class="card-footer">
@@ -95,8 +100,8 @@
             var test = $('#jenis :selected').val();
 
             for (let index = 0; index < count; index++) {
-                if (jenis[index].id_kategori == test) {
-                    var kodejenis = jenis[index].kode_kategori;
+                if (jenis[index].id_jenis == test) {
+                    var kodejenis = jenis[index].kode_jenis;
                 }
 
             }
@@ -126,6 +131,25 @@
             kodebarang.open("GET", urlpos, true);
             kodebarang.send();
         });
+            // $("#jenis_id").change(function() {
+            //     const jenis = <?php echo json_encode($jenis); ?>;
+            //     var count = Object.keys(jenis).length;
+
+            //     var test = $('#jenis_id :selected').val();
+
+            //     for (let index = 0; index < count; index++) {
+            //         if (jenis[index].id_jenis == test) {
+            //             var kodejenis = jenis[index].kode_jenis;
+            //         }
+
+            //     }
+
+
+            //     var coba = $('input#kode_produk').val(kodejenis);
+            // });
+
+
+            // });
 
 
 
@@ -143,8 +167,8 @@
             var test = $('#jenis :selected').val();
 
             for (let index = 0; index < count; index++) {
-                if (jenis[index].id_kategori == test) {
-                    var namajenis = jenis[index].nama_kategori;
+                if (jenis[index].id_jenis == test) {
+                    var namajenis = jenis[index].nama_sjenis;
                 }
 
             }

@@ -13,17 +13,28 @@ class Model_invoice extends CI_Model {
     public function tampilData() {
     return $this->db->get_where("invoice");
   }
+  public function get_mitra() {
+    return $this->db->get_where("mitra", array('nama_mitra' => $this->session->userdata('nama_mitra')));
+    return $this->db->get_where("invoice", array('alamat_mitra' => $this->session->userdata('alamat_mitra')));
+    return $this->db->get_where("invoice", array('id_invoice' => $this->session->userdata('id_invoice')));
+    return $this->db->get_where("invoice", array('jumalh_pengiriman' => $this->session->userdata('jumalh_pengiriman')));
+    
+  }
   public function get_invoice($id){
 
     return $this->db->get_where('invoice', ['id_invoice'=>$id])-> row_array();
 
 }
+    public function halamanUpdate($where, $table) {
+        return $this->db->get_where($table, $where);
+    }
 
 public function proses_edit()
 {
     $data = [
         "nama_mitra" => $this->input->post('nama_mitra'),
-        "jumlah_pengiriman" => $this->input->post('jumlah_pengiriman')
+        "jumlah_pengiriman" => $this->input->post('jumlah_pengiriman'),
+        "alamat" => $this->input->post('alamat')
     ];
 
     $this->db->where('id_invoice', $this->input->post('id'));
@@ -42,7 +53,20 @@ public function proses_edit()
         }
         return $this->db->get($table)->row_array()[$field];
     }
-    
+    public function search($search="")
+	{
+		$this->db->like('nama_mitra', $search);
+		return $this->db->get($this->table)->result();
+	}
+    public function get_keyword($keyword){
+        $this->db->select('*');
+        $this->db->from('invoice');
+        $this->db->like('no_invoice', $keyword);
+        $this->db->or_like('nama_mitra', $keyword);
+        $this->db->or_like('jumlah_pengiriman', $keyword);
+        $this->db->or_like('alamat', $keyword);
+        return $this->db->get()->result();
+    }
 
 
 

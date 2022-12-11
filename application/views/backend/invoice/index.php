@@ -6,19 +6,37 @@
             <div class="card">
               <div class="card-header">
               
-                  <a href="<?php echo base_url(); ?>admin/invoice/tambah" class="btn btn-sm btn-info btn-flat"><i class="far fa-plus-square"></i> Tambah Invoice</a>
+                  <a href="<?php echo base_url(); ?>admin/invoice/tambah" class="btn btn-success"><i class="far fa-plus-square"></i> Tambah Invoice</a>
+                  <a class="btn btn-primary" href="<?php echo base_url('admin/invoice/print') ?>"><i class="fas fa-fw fa-print"></i> Print</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
               <?php echo $this->session->flashdata('message'); ?>
+                <tr>
+                      <td colspan="4">
+                          <?php $attributes = array('class' => 'row'); ?>
+                          <?php echo form_open('admin/invoice/search',$attributes);?>
+                              <input type="text" name="keyword" placeholder="Search" class="form-control col-md-5">
+                              <input type="submit" value="Cari" class="btn btn-warning col-md-1">
+                          <?php echo form_close();?>		
+                      </td>
+                </tr>
+              </div>
+              <!-- <div class="search-element">
+                  <?php $attributes = array('class' => 'row'); ?>
+                  <?php echo form_open('admin/invoice/search', $attributes); ?>
+                  <input class="form-control" name="keyword" type="text" placeholder="Search" aria-label="Search" data-width="250">
+                  <button class="btn" value="Cari" type="submit"><i class="fas fa-search mb-3"></i></button>
+                  <?php echo form_close(); ?>
+              </div> -->
               <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>ID Mitra</th>
                     <th>Nama Mitra</th>
                     <th>Jumlah Pengiriman</th>
-                    <th>Edit</th>
-                    <th>Hapus</th>
+                    <th>Alamat</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <?php
@@ -29,24 +47,32 @@
                     <td><?php echo $no++?></td>
                     <td><?php echo $invoice->nama_mitra ?></td>
                     <td><?php echo $invoice->jumlah_pengiriman ?></td>
-
+                    <td><?php echo $invoice->alamat ?></td>
                     <td>
-                        <?php echo anchor(
-                            'admin/invoice/edit/' . $invoice->id_invoice,
-                            '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
-                        ) ?>
-                        <!-- <button class="btn btn-warning btn-sm fas fa-edit" data-toggle="modal" data-target="#EditProduk"></button> -->
+                      <?php echo anchor(
+                                'admin/invoice/detail/' . $invoice->id_invoice,
+                                '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
+                            ) ?>
+                        </td>
 
-                    </td>
+                        <td>
+                            <?php echo anchor(
+                                'admin/invoice/edit/' . $invoice->id_invoice,
+                                '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
+                            ) ?>
+                        </td>
 
-                    <td>
-                        <!-- <a class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" href="<?php echo base_url('admin/invoice/hapus_data/') ?>/<?php echo $invoice->id_invoice ?>">
+                        <td>
+                            <!-- <a class="btn btn-danger btn-sm" 
+                            onclick="return confirm('Apakah anda yakin ingin menghapus data?')"
+                            href="<?php echo base_url('admin/invoice/hapus/') ?>/<?php echo $invoice->id_invoice ?>">
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                        <a onclick="deleteConfirm('<?php echo site_url('admin/invoice/hapus/' . $invoice->id_invoice) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
-                    </td>
-                  <?php endforeach; ?>
+                            <a onclick="deleteConfirm('<?php echo site_url('admin/invoice/hapus/' . $invoice->id_invoice) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                        </td>
+
+                      <?php endforeach; ?>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -81,8 +107,7 @@
     </div>
 </div>
 </div>
-
-  <script>
+<script>
     function deleteConfirm(url) {
         $('#btn-delete').attr('href', url);
         $('#deleteModal').modal();

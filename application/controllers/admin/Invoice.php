@@ -23,10 +23,10 @@ class Invoice extends CI_Controller {
 
 	public function tambah(){
 		$data['page_title']       = 'Tambah Data Invoice';
-		$this->load->model('model_invoice');
-		$data['invoice']= $this->model_invoice->tampilData()->result();
 		$this->load->model('model_mitra');
+		$this->load->model('model_invoice');
 		$data['pelanggan'] = $this->model_mitra->tampilData()->result();
+		$data['invoice'] = $this->model_invoice->tampilData()->result();
 
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
@@ -101,16 +101,51 @@ class Invoice extends CI_Controller {
 		</div>');
 		redirect(base_url('admin/invoice/index'));
 	}
+	
+	public function detail($id_invoice){
+			$data['page_title']       = 'Detail Data Invoice';
+			$this->load->model('model_invoice');
+			// $data['mitra'] = $this->model_invoice->get_mitra();
+			$where = array('id_invoice' => $id_invoice);
+			// $this->load->model('MKegiatanCRUD');
+			$data['mitra'] = $this->model_invoice->halamanUpdate($where, 'invoice')->result();
+			$where = array('id_invoice' => $id_invoice);
+			// $this->load->model('MKegiatanCRUD');
+			$data['mitra'] = $this->model_invoice->halamanUpdate($where, 'invoice')->result();
+			
+			
+			$this->load->view('backend/template/meta', $data);
+			$this->load->view('backend/template/navbar');
+			$this->load->view('backend/template/sidebar');
+			$this->load->view('backend/template/header');
+			$this->load->view('backend/invoice/detail', $data);
+			$this->load->view('backend/template/footer');
+			$this->load->view('backend/template/js');
+		}
 
-	public function detail(){
-		$data['page_title']       = 'Detail Data Invoice';
+		public function print()
+		{
+			$this->load->model('model_invoice');
+			$data['invoice'] = $this->model_invoice->tampilData()->result();
+			
+	
+			$this->load->view('backend/invoice/print', $data);
+		} 
+
+    public function search()
+    {
+		$data['page_title']       = ' Data Invoice';
+		$this->load->model('model_invoice');
+        $keyword = $this->input->post('keyword');
+        $data['invoice'] = $this->model_invoice->get_keyword($keyword);
+
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
 		$this->load->view('backend/template/sidebar');
 		$this->load->view('backend/template/header');
-		$this->load->view('backend/invoice/detail');
+		$this->load->view('backend/invoice/index');
 		$this->load->view('backend/template/footer');
 		$this->load->view('backend/template/js');
-	}
+    }
 }
 ?>

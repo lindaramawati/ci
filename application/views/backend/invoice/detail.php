@@ -7,45 +7,53 @@
               This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
             </div>
 
-
+          <?php foreach ($mitra as $act) : ?>
             <!-- Main content -->
             <div class="invoice p-3 mb-3">
               <!-- title row -->
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <i class="fas fa-globe"></i> AdminLTE, Inc.
+                    <i>To<br><?php echo $act->nama_mitra ?></i> </br>
+                    
                     <small class="float-right">Date: 2/10/2014</small>
                   </h4>
                 </div>
                 <!-- /.col -->
               </div>
-              <!-- info row -->
+              <!-- /.col -->
               <div class="row invoice-info">
+              <div class="col-sm-4 invoice-col">
+                  <address>
+                    <strong><?php echo $act->alamat ?></strong><br>
+                  </address>
+                </div>
+              <!-- info row -->
+              
                 <div class="col-sm-4 invoice-col">
                   From
                   <address>
-                    <strong>Admin, Inc.</strong><br>
-                    795 Folsom Ave, Suite 600<br>
-                    San Francisco, CA 94107<br>
+                    <strong>CV.Mandiri Asta Kencana</strong><br>
+                    Jl. kamu nanyee<br>
+                    Madiun, 9275<br>
                     Phone: (804) 123-5432<br>
-                    Email: info@almasaeedstudio.com
+                    Email: mandiriasta@gmail.com
                   </address>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-4 invoice-col">
+                <!-- <div class="col-sm-4 invoice-col">
                   To
                   <address>
-                    <strong>John Doe</strong><br>
-                    795 Folsom Ave, Suite 600<br>
+                    <strong><?php echo $act->alamat_mitra ?></strong><br>
                     San Francisco, CA 94107<br>
                     Phone: (555) 539-1037<br>
                     Email: john.doe@example.com
                   </address>
-                </div>
+                </div> -->
+          
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  <b>Invoice #007612</b><br>
+                <strong>Id Invoice<?php echo $act->id_invoice ?></strong><br>
                   <br>
                   <b>Order ID:</b> 4F3S8J<br>
                   <b>Payment Due:</b> 2/22/2014<br>
@@ -53,6 +61,9 @@
                 </div>
                 <!-- /.col -->
               </div>
+              
+
+
               <!-- /.row -->
 
               <!-- Table row -->
@@ -70,12 +81,14 @@
                     </thead>
                     <tbody>
                     <tr>
+
                       <td>1</td>
-                      <td>Call of Duty</td>
+                      <td><?php echo $act->jumlah_pengiriman ?></td>
                       <td>455-981-221</td>
                       <td>El snort testosterone trophy driving gloves handsome</td>
                       <td>$64.50</td>
                     </tr>
+                    <?php endforeach; ?>
                     <tr>
                       <td>1</td>
                       <td>Need for Speed IV</td>
