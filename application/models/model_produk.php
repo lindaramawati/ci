@@ -14,7 +14,7 @@ class Model_produk extends CI_Model {
   }
   public function tampilJenis() {
     return $this->db->get_where
-    ("jenis");
+    ("kategori");
     
   }
   

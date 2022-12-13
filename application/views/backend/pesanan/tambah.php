@@ -10,9 +10,21 @@
               <form action="<?php echo base_url('admin/pesanan/proses_tambah') ?>" method="post" role="form">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="nama_mitra">Nama Mitra</label>
-                    <input type="text" name="nama_mitra" class="form-control" id="nama_mitra" placeholder="Masukkan Nama Mitra" required>
-                  </div>
+                  <label for="name">Nama Mitra</label>
+                            <div class="form-group">
+                               <select required name="nama_mitra"class="form-control">
+        	                       
+                                    <option value="">--Pilih Mitra--</option>
+                                <?php                                
+                                   foreach ($pelanggan as $dxd) {  
+                                       
+		                             echo "<option value='".$dxd->nama_mitra."'>".$dxd->nama_mitra."</option>";
+		                                               }
+		                                       echo"
+		                                    </select>"
+	                              	?>
+                                </div>
+                            </div>
                   <div class="form-group">
                     <label for="tanggal_pemesanan">Tanggal Pemesanan</label>
                     <input type="date" class="form-control" name="tanggal_pemesanan" id="tanggal_pemesanan" placeholder="Masukkan Tanggal Pemesanan" required>

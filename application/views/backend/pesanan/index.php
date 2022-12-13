@@ -53,7 +53,7 @@
                         <td>
                             <?php echo anchor(
                                 'admin/pesanan/edit/' . $pesanan->id_order,
-                                '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
+                                '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"><style="color: white"></i></div>'
                             ) ?>
                         </td>
 

@@ -45,7 +45,7 @@
                       <select name="jenis" id="id_jenis" class="form-control">
                         <option value="" hidden>Pilih</option>
                         <?php foreach ($jenis as $key){
-                          echo "<option value='".$key->nama_jenis."'>".$key->nama_jenis."</option>";
+                          echo "<option value='".$key->kode_kategori."'>".$key->nama_kategori."</option>";
 		                                               }
 		                                       echo"
 		                                    </select>"
@@ -92,12 +92,12 @@
     $(document).ready(function() {
 
 
-        $("#jenis").change(function() {
+        $("#id_jenis").change(function() {
             const jenis = <?php echo json_encode($jenis); ?>;
            
             var count = Object.keys(jenis).length;
 
-            var test = $('#jenis :selected').val();
+            var test = $('#id_jenis :selected').val();
 
             for (let index = 0; index < count; index++) {
                 if (jenis[index].id_jenis == test) {
@@ -105,6 +105,7 @@
                 }
 
             }
+            var kodejenis = test;
             var coba = $('input#kode_produk').val(kodejenis);
             var urlpos = "<?php echo site_url('admin/Code_controller/getCodebarang/'); ?>" + kodejenis;
 
@@ -151,31 +152,6 @@
 
             // });
 
-
-
-    });
-</script>
-<!-- Mengambil Nama Barang  -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function() {
-
-        $("#jenis").change(function() {
-            const jenis = <?php echo json_encode($jenis); ?>;
-            var count = Object.keys(jenis).length;
-
-            var test = $('#jenis :selected').val();
-
-            for (let index = 0; index < count; index++) {
-                if (jenis[index].id_jenis == test) {
-                    var namajenis = jenis[index].nama_sjenis;
-                }
-
-            }
-
-
-            var coba = $('input#nama_produk').val(namajenis);
-        });
 
 
     });

@@ -21,6 +21,10 @@ class Pesanan extends CI_Controller {
 	}
 	public function tambah(){
 		$data['page_title']       = 'Tambah Data order';
+		$this->load->model('model_mitra');
+		$this->load->model('model_invoice');
+		$data['pesanan'] = $this->model_invoice->tampilData()->result();
+		$data['pelanggan'] = $this->model_mitra->tampilData()->result();
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
 		$this->load->view('backend/template/sidebar');

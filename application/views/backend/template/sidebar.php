@@ -45,19 +45,19 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?= base_url('admin/invoice') ?>" class="nav-link">
-                  <i class="nav-icon fas fa-truck-loading"></i>
+                  <i class="far fa-circle nav-icon"></i>
                   <p>Invoice</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?= base_url('admin/pesanan') ?>" class="nav-link">
-                  <i class="nav-icon fas fa-cart-plus"></i>
+                  <i class="far fa-circle nav-icon"></i>
                   <p>Order</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?= base_url('admin/surat_jalan') ?>" class="nav-link">
-                  <i class="nav-icon 	fas fa-shipping-fast"></i>
+                  <i class="far fa-circle nav-icon"></i>
                   <p>Surat Jalan</p>
                 </a>
               </li>

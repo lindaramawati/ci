@@ -7,7 +7,7 @@
               <div class="card-header">
               
                   <a href="<?php echo base_url(); ?>admin/invoice/tambah" class="btn btn-success"><i class="far fa-plus-square"></i> Tambah Invoice</a>
-                  <a class="btn btn-primary" href="<?php echo base_url('admin/invoice/print') ?>"><i class="fas fa-fw fa-print"></i> Print</a>
+                  <a class="btn btn-primary" style="color: white"  href="<?php echo base_url('admin/invoice/print') ?>"><i class="fas fa-fw fa-print"></i> Print</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

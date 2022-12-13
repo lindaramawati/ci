@@ -15,7 +15,7 @@
                   </div>
                   <div class="form-group">
                     <label for="tanggal_pemesanan">Tanggal pemesanan</label>
-                    <input type="text" class="form-control" name="tanggal_pemesanan" id="tanggal_pemesanan" value="<?php echo $pesanan['tanggal_pemesanan'] ?>" placeholder="Masukkan Tanggal Pemesanan" required>
+                    <input type="date" class="form-control" name="tanggal_pemesanan" id="tanggal_pemesanan" value="<?php echo $pesanan['tanggal_pemesanan'] ?>" placeholder="Masukkan Tanggal Pemesanan" required>
                   </div>
                   <div class="form-group">
                     <label for="jumalh_pesanan">Jumlah pesanan</label>
