@@ -37,27 +37,27 @@
                   </thead>
                   <?php
                   $no = 1;
-                  foreach ($produk as $produk) :
+                  foreach ($produk as $b) :
                   ?>
                   <tbody>
-                    <td><?php echo $produk->id_produk?></td>
-                    <td><?php echo $produk->kode_produk ?></td>
-                    <td><?php echo $produk->nama_produk ?></td>
-                    <td><?php echo $produk->type ?></td>
-                    <td><?php echo $produk->Jenis ?></td>
-                    <td><?php echo $produk->merk_produk ?></td>
-                    <td><?php echo $produk->seri_produk ?></td>
+                    <td><?= $b['id_produk']; ?></td>
+                    <td><?= $b['kode_produk']; ?></td>
+                    <td><?= $b['nama_produk']; ?></td>
+                    <td><?= $b['type']; ?></td>
+                    <td><?= $b['nama_kategori']; ?></td>
+                    <td><?= $b['merk_produk']; ?></td>
+                    <td><?= $b['seri_produk']; ?></td>
 
                     <td>
                        
                     <?php echo anchor(
-                                'admin/produk/detail/' . $produk->id_produk,
+                                'admin/produk/detail/' . $b['id_produk'],
                                 '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
                             ) ?>
                         </td>
                         <td>
                             <?php echo anchor(
-                                'admin/produk/edit/' . $produk->id_produk,
+                                'admin/produk/edit/' . $b['id_produk'],
                                 '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
                             ) ?>
                         </td>
@@ -69,7 +69,7 @@
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                            <a onclick="deleteConfirm('<?php echo site_url('admin/produk/hapus/' . $produk->id_produk) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                            <a onclick="deleteConfirm('<?php echo site_url('admin/produk/hapus/' . $b['id_produk']) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
                         </td>
                     </td>
                   <?php endforeach; ?>

@@ -15,12 +15,12 @@ class Produk extends CI_Controller {
 		
 		$data['page_title']       = 'Daftar Produk';
 		$this->load->model('model_produk');
-		$data['produk']= $this->model_produk->tampilData()->result();
+		$data['produk']= $this->model_produk->tampilData();
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
 		$this->load->view('backend/template/sidebar');
 		$this->load->view('backend/template/header');
-		$this->load->view('backend/produk/index');
+		$this->load->view('backend/produk/index', $data);
 		$this->load->view('backend/template/footer');
 		$this->load->view('backend/template/js');
 	}
@@ -40,15 +40,17 @@ class Produk extends CI_Controller {
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "ATK";
-            $data['jenis'] = $this->model_produk->get('jenis');
-			$data['jenis'] = $this->model_produk->tampilJenis()->result();
+            // $data['jenis'] = $this->model_produk->get('jenis');
+			// $data['jenis'] = $this->model_produk->tampilJenis()->result();
+			// data select option
+			$data['jenis'] = $this->model_produk->get('kategori');
 
             // Mengenerate ID produk
-            $kode_terakhir = $this->model_produk->getMax('produk', 'id_produk');
-            $kode_tambah = substr($kode_terakhir, -6, 6);
-            $kode_tambah++;
-            $number = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
-            $data['id_produk'] = 'B' . $number;
+            // $kode_terakhir = $this->model_produk->getMax('produk', 'id_produk');
+            // $kode_tambah = substr($kode_terakhir, -6, 6);
+            // $kode_tambah++;
+            // $number = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
+            // $data['id_produk'] = 'B' . $number;
 
             // $data['kode_barang'] = $number;
             // $kode = $this->admin->getMax('barang', 'kode_barang');
@@ -69,11 +71,11 @@ class Produk extends CI_Controller {
             $insert = $this->admin->insert('produk', $input);
 
             if ($insert) {
-                set_pesan('data berhasil disimpan');
-                redirect('barang');
+                // set_pesan('data berhasil disimpan');
+                redirect('produk');
             } else {
-                set_pesan('gagal menyimpan data');
-                redirect('barang/add');
+                // set_pesan('gagal menyimpan data');
+                redirect('produk/tambah');
             }
         }
     }
@@ -98,6 +100,7 @@ class Produk extends CI_Controller {
 
 		$this->load->model(['model_produk']);
 		// $jenis= $this->model_produk->datakategori();
+		
 
 		$kode_produk = $this->input->post('kode_produk');
         $nama_produk = $this->input->post('nama_produk');
@@ -106,6 +109,7 @@ class Produk extends CI_Controller {
 		$jenis = $this->input->post('jenis');
         $merk = $this->input->post('merk');
 		$seri = $this->input->post('seri');
+		$kode = $this->input->post('kode');
 
 		
 
@@ -116,7 +120,8 @@ class Produk extends CI_Controller {
 		'type' => $type,
 		'jenis' => $jenis,
 		'merk_produk' => $merk,
-		'seri_produk' => $seri
+		'seri_produk' => $seri,
+		'kode' => $kode
         );
 
         $this->db->insert('produk', $ArrInsert);

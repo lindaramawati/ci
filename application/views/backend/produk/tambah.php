@@ -44,16 +44,36 @@
                     <div class="col-12 col-md-9">
                       <select name="jenis" id="id_jenis" class="form-control">
                         <option value="" hidden>Pilih</option>
-                        <?php foreach ($jenis as $key){
-                          echo "<option value='".$key->kode_kategori."'>".$key->nama_kategori."</option>";
+                        <?php foreach ($jenis as $j) : ?>
+                            <option  value="<?= $j['id_kategori'] ?>"><?= $j['kode_kategori'] . ' | ' . $j['nama_kategori'] ?></option>
+                        <?php endforeach; ?>
+
+                        <!-- <?php foreach ($jenis as $key){
+                          echo "<option value='".$key->id_kategori."'>".$key->nama_kategori. " | ".$key->kode_kategori."</option>";
 		                                               }
 		                                       echo"
 		                                    </select>"
-	                              	?>              
+	                              	?>               -->
                       </select>
                     </div>
                      
                   </div>
+
+                  <!-- <div class="form-group">
+                    <label for="type">coba</label>
+                  
+                    <div class="col-12 col-md-9">
+                      <select name="type" id="type" class="form-control">
+                        <option value="" hidden>Pilih</option>
+                        <?php foreach ($jenis as $key): ?>
+                            <option value="<?php echo $key->id_kategori ?>"><?php echo $key->nama_kategori ?></option>
+                        <?php endforeach ?>
+	                                   
+                      </select>
+                    </div>
+                     
+                  </div> -->
+
                   <div class="form-group">
                     <label for="merk">merk</label>
                     <input type="text" class="form-control" name="merk" id="merk" placeholder="Masukkan Merk" required>
@@ -62,6 +82,8 @@
                     <label for="seri">seri</label>
                     <input type="text" class="form-control" name="seri" id="seri" placeholder="Masukkan Unit" required>
                   </div>
+
+                  <input type="hidden" name="kode" id="kode" type="text" class="form-control" placeholder="Kode">
                 </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
@@ -94,26 +116,33 @@
 
         $("#id_jenis").change(function() {
             const jenis = <?php echo json_encode($jenis); ?>;
+            
+   
            
             var count = Object.keys(jenis).length;
 
             var test = $('#id_jenis :selected').val();
+            
 
             for (let index = 0; index < count; index++) {
-                if (jenis[index].id_jenis == test) {
-                    var kodejenis = jenis[index].kode_jenis;
+                if (jenis[index].id_kategori === test) {
+                    var kodejenis = jenis[index].kode_kategori;
+                    
                 }
 
             }
-            var kodejenis = test;
+        
             var coba = $('input#kode_produk').val(kodejenis);
             var urlpos = "<?php echo site_url('admin/Code_controller/getCodebarang/'); ?>" + kodejenis;
+            
+         
 
             var kodejenis = $("#kode_produk").val();
             var kodebarang = new XMLHttpRequest();
             kodebarang.onload = function() {
-
+                console.log(this.responseText);
                 var banyakkode = JSON.parse(this.responseText) ;
+                console.log('absqwj',banyakkode);
 
            
                 // var tambahkode = parseInt(banyakkode.banyakbarang) +1;

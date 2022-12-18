@@ -10,18 +10,14 @@ class Kode_model extends CI_Model
         for ($i = 1; $i <= $jumlah; $i++) {
             if (strlen($id) == 2) {
                 $kodejumlah = $id . str_pad($i, 2, '0', STR_PAD_LEFT);
+           
             } else {
                 $kodejumlah = $id . str_pad($i, 3, '0', STR_PAD_LEFT);
             }
-
-
             $idkode = $this->db->get_where('produk', array('kode_produk' => $kodejumlah))->num_rows();
-
             if ($idkode == 0) {
                 return ['banyakbarang' => $i];
-            }
-
-            
+            }            
         }
     }
     public function getKode($id)
@@ -36,6 +32,7 @@ class Kode_model extends CI_Model
             $this->db->from('produk');
             $this->db->where('kode', $id);
             $jumlah = $this->db->get()->result_array()[0]['banyakbarang'];
+        
             $jumlah += 1;
             return ['banyakbarang' => $jumlah];
     

@@ -5,11 +5,25 @@ class Model_produk extends CI_Model {
     {
         $this->db->order_by('id_kategori', 'DESC');
         return $this->db->get('kategori');
+       
+    }
+
+    function join($table,$tbljoin,$join){
+        $this->db->join($tbljoin,$join);
+        return $this->db->get($table);
     }
   
     public function tampilData() {
-    return $this->db->get_where
-    ("produk");
+        // $this->db->join('kategori', 'kategori.id_kategori = produk.Jenis');
+        // return $this->db->get_where("produk");
+
+        // $this->db->select('*');
+        // $this->db->join('kategori', 'kategori.id_kategori = produk.type');
+        // return $this->db->get_where("produk");
+        $this->db->join('kategori', 'produk.Jenis = kategori.id_kategori');
+        $this->db->order_by('id_produk');
+        return $this->db->get('produk')->result_array();
+
     
   }
   public function tampilJenis() {
