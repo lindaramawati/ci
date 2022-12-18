@@ -8,6 +8,7 @@
               
               <a href="<?php echo base_url(); ?>admin/produk/tambah" class="btn btn-success"><i class="far fa-plus-square"></i> Tambah Produk</a>
               <a class="btn btn-primary" href="<?php echo base_url('admin/produk/print') ?>"><i class="fas fa-fw fa-print"></i> Print</a>
+              <a href="<?php echo base_url(); ?>admin/kategori" class="btn btn-warning float-right"><i class="far fa-plus-square"></i> Tambah kategori</a>
           </div>
               <!-- /.card-header -->
               <div class="card-body">
