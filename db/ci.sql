@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Des 2022 pada 02.34
+-- Waktu pembuatan: 18 Des 2022 pada 08.03
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `ci`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `id_invoice` int(11) NOT NULL,
+  `no_invoice` int(25) NOT NULL,
+  `nama_mitra` varchar(255) NOT NULL,
+  `jumlah_pengiriman` int(55) NOT NULL,
+  `alamat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `invoice`
+--
+
+INSERT INTO `invoice` (`id_invoice`, `no_invoice`, `nama_mitra`, `jumlah_pengiriman`, `alamat`) VALUES
+(1, 2345, 'maju', 2, 'madiun jl bhagia 1/20 qi0198');
 
 -- --------------------------------------------------------
 
@@ -103,6 +124,8 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `kode_kategori`, `nama_kategori`) VALUES
+(1, 12, 'Kertas'),
+(2, 11, 'atk'),
 (4, 22, 'Kertas HVS');
 
 -- --------------------------------------------------------
@@ -150,15 +173,25 @@ INSERT INTO `mitra` (`id_mitra`, `nama_mitra`, `type`, `alamat_mitra`, `no_telep
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `order`
+-- Struktur dari tabel `pesanan`
 --
 
-CREATE TABLE `order` (
-  `id_pemesanan` int(11) NOT NULL,
-  `id_mitra` int(11) NOT NULL,
+CREATE TABLE `pesanan` (
+  `id_order` int(11) NOT NULL,
+  `nama_mitra` varchar(255) NOT NULL,
   `tanggal_pemesanan` date NOT NULL,
-  `jumlah_pesanan` varchar(255) NOT NULL
+  `jumlah_pesanan` varchar(255) NOT NULL,
+  `nama_produk` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pesanan`
+--
+
+INSERT INTO `pesanan` (`id_order`, `nama_mitra`, `tanggal_pemesanan`, `jumlah_pesanan`, `nama_produk`) VALUES
+(1, 'maju', '0000-00-00', '11', 'kertas'),
+(3, 'jaya', '0000-00-00', '13', 'baju'),
+(4, 'indahh', '0000-00-00', '2', 'kertas');
 
 -- --------------------------------------------------------
 
@@ -170,8 +203,8 @@ CREATE TABLE `produk` (
   `id_produk` varchar(7) NOT NULL,
   `kode_produk` varchar(255) NOT NULL,
   `nama_produk` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL,
-  `Jenis` varchar(255) NOT NULL,
+  `type` varchar(64) NOT NULL,
+  `Jenis` varchar(64) NOT NULL,
   `merk_produk` varchar(255) NOT NULL,
   `seri_produk` varchar(255) NOT NULL,
   `kode` int(64) NOT NULL
@@ -182,7 +215,33 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama_produk`, `type`, `Jenis`, `merk_produk`, `seri_produk`, `kode`) VALUES
-('P000001', '9501', 'mie sedap', '-', 'Kertas HVS', 'wingsfood', '33333', 0);
+('B000004', '4001', 'mie sedap', '2B', '4', 'sidu', '33333', 4),
+('P000001', '1001', 'mie sedap', 'w', '1', 'wingsfood', '33333', 1),
+('P000003', '1002', 'mie sedap', '2B', '1', 'sidu', '33333', 1),
+('P000004', '1101', 'mie sedap', 'w', '2', 'sidu', '22', 11),
+('P000005', '1201', 'mie sedap', '-', '1', 'sidu', '33333', 12),
+('P000007', '1203', 'crayon', 'w', '1', 'wingsfood', '33333', 12),
+('P000008', '1202', 'crayon', 'w', '1', 'wingsfood', '33333', 12),
+('P000009', '1204', 'mie sedap', 'w', '1', 'sidu', '22', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `surat_jalan`
+--
+
+CREATE TABLE `surat_jalan` (
+  `id_suratjalan` int(11) NOT NULL,
+  `metode_pengiriman` varchar(255) NOT NULL,
+  `nomer_kendaraan` varchar(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `surat_jalan`
+--
+
+INSERT INTO `surat_jalan` (`id_suratjalan`, `metode_pengiriman`, `nomer_kendaraan`) VALUES
+(2, 'atm', 'j232ae');
 
 -- --------------------------------------------------------
 
@@ -209,6 +268,12 @@ INSERT INTO `user` (`id_user`, `name`, `username`, `password`) VALUES
 --
 
 --
+-- Indeks untuk tabel `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`id_invoice`);
+
+--
 -- Indeks untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
@@ -233,19 +298,23 @@ ALTER TABLE `mitra`
   ADD PRIMARY KEY (`id_mitra`);
 
 --
--- Indeks untuk tabel `order`
+-- Indeks untuk tabel `pesanan`
 --
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`id_pemesanan`),
-  ADD KEY `id_mitra` (`id_mitra`);
+ALTER TABLE `pesanan`
+  ADD PRIMARY KEY (`id_order`);
 
 --
 -- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`),
-  ADD KEY `Jenis` (`Jenis`),
-  ADD KEY `Jenis_2` (`Jenis`);
+  ADD KEY `type` (`type`);
+
+--
+-- Indeks untuk tabel `surat_jalan`
+--
+ALTER TABLE `surat_jalan`
+  ADD PRIMARY KEY (`id_suratjalan`);
 
 --
 -- Indeks untuk tabel `user`
@@ -258,6 +327,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `invoice`
+--
+ALTER TABLE `invoice`
+  MODIFY `id_invoice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
@@ -268,6 +343,18 @@ ALTER TABLE `jenis`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `pesanan`
+--
+ALTER TABLE `pesanan`
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `surat_jalan`
+--
+ALTER TABLE `surat_jalan`
+  MODIFY `id_suratjalan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
