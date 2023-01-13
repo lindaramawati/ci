@@ -22,9 +22,11 @@ class Pesanan extends CI_Controller {
 	public function tambah(){
 		$data['page_title']       = 'Tambah Data order';
 		$this->load->model('model_mitra');
+		$this->load->model('model_produk');
 		$this->load->model('model_invoice');
 		$data['pesanan'] = $this->model_invoice->tampilData()->result();
 		$data['pelanggan'] = $this->model_mitra->tampilData()->result();
+		$data['produk'] = $this->model_produk->tampilData1()->result();
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
 		$this->load->view('backend/template/sidebar');
@@ -36,11 +38,11 @@ class Pesanan extends CI_Controller {
 	public function proses_tambah(){
 
 		$this->load->model('model_pesanan', 'admin');
-		$kode_terakhir = $this->admin->getMax('pesanan', 'id_order');
+		$kode_terakhir = $this->admin->getMax('pesanan', 'id');
         $kode_tambah = substr($kode_terakhir, -6, 6);
         $kode_tambah++;
         $number = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
-        $data['id_order'] = 'P' . $number;
+        $data['id'] = 'P' . $number;
 
 
 		$nama_mitra = $this->input->post('nama_mitra');
@@ -93,8 +95,8 @@ class Pesanan extends CI_Controller {
 		redirect('admin/pesanan/index');
 	}
 
-	public function hapus($id_order){
-		$this->db->where('id_order', $id_order);
+	public function hapus($id){
+		$this->db->where('id', $id);
 		$this->db->delete('pesanan');
 		$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
 		<strong>Data berhasil dihapus</strong>
@@ -105,7 +107,7 @@ class Pesanan extends CI_Controller {
 		redirect(base_url('admin/pesanan/index'));
 	}
 
-	public function detail($id_order){
+	public function detail($id){
 		$data['page_title']       = 'Detail Data Pesanan';
 		$this->load->model('model_pesanan');
 		$data['pesanan']= $this->model_pesanan->tampilData()->result();
@@ -130,7 +132,7 @@ class Pesanan extends CI_Controller {
 
 	public function search()
     {
-		$data['page_title']       = ' Data Invoice';
+		$data['page_title']       = ' Data Order';
 		$this->load->model('model_pesanan');
         $keyword = $this->input->post('keyword');
         $data['pesanan'] = $this->model_pesanan->get_keyword($keyword);

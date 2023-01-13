@@ -17,7 +17,7 @@
                           <?php $attributes = array('class' => 'row'); ?>
                           <?php echo form_open('admin/invoice/search',$attributes);?>
                               <input type="text" name="keyword" placeholder="Search" class="form-control col-md-5">
-                              <input type="submit" value="Cari" class="btn btn-warning col-md-1">
+                              <input type="submit" value="Cari" class="btn btn-info col-md-1">
                           <?php echo form_close();?>		
                       </td>
                 </tr>
@@ -36,6 +36,7 @@
                     <th>Nama Mitra</th>
                     <th>Jumlah Pengiriman</th>
                     <th>Alamat</th>
+                    <th>Tanggal pengiriman</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -48,16 +49,16 @@
                     <td><?php echo $invoice->nama_mitra ?></td>
                     <td><?php echo $invoice->jumlah_pengiriman ?></td>
                     <td><?php echo $invoice->alamat ?></td>
+                    <td><?php echo $invoice->tanggal_pengiriman ?></td>
                     <td>
                       <?php echo anchor(
-                                'admin/invoice/detail/' . $invoice->id_invoice,
+                                'admin/invoice/detail/' . $invoice->id,
                                 '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
                             ) ?>
                         </td>
-
                         <td>
                             <?php echo anchor(
-                                'admin/invoice/edit/' . $invoice->id_invoice,
+                                'admin/invoice/edit/' . $invoice->id,
                                 '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
                             ) ?>
                         </td>
@@ -65,11 +66,11 @@
                         <td>
                             <!-- <a class="btn btn-danger btn-sm" 
                             onclick="return confirm('Apakah anda yakin ingin menghapus data?')"
-                            href="<?php echo base_url('admin/invoice/hapus/') ?>/<?php echo $invoice->id_invoice ?>">
+                            href="<?php echo base_url('admin/invoice/hapus/') ?>/<?php echo $invoice->id ?>">
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                            <a onclick="deleteConfirm('<?php echo site_url('admin/invoice/hapus/' . $invoice->id_invoice) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                            <a onclick="deleteConfirm('<?php echo site_url('admin/invoice/hapus/' . $invoice->id) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
                         </td>
 
                       <?php endforeach; ?>

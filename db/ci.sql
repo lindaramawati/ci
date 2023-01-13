@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Des 2022 pada 08.03
+-- Waktu pembuatan: 11 Jan 2023 pada 05.44
 -- Versi server: 10.4.24-MariaDB
--- Versi PHP: 8.0.19
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,19 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `invoice` (
-  `id_invoice` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `no_invoice` int(25) NOT NULL,
   `nama_mitra` varchar(255) NOT NULL,
   `jumlah_pengiriman` int(55) NOT NULL,
-  `alamat` varchar(255) NOT NULL
+  `alamat` varchar(255) NOT NULL,
+  `tanggal_pengiriman` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `invoice`
 --
 
-INSERT INTO `invoice` (`id_invoice`, `no_invoice`, `nama_mitra`, `jumlah_pengiriman`, `alamat`) VALUES
-(1, 2345, 'maju', 2, 'madiun jl bhagia 1/20 qi0198');
+INSERT INTO `invoice` (`id`, `no_invoice`, `nama_mitra`, `jumlah_pengiriman`, `alamat`, `tanggal_pengiriman`) VALUES
+(5, 0, 'Maju', 3, 'Madiun Kota', '2023-01-10'),
+(6, 0, 'Indah A', 1, 'Caruban', '2023-01-10'),
+(7, 0, 'Yuyun', 3, 'Madiun', '2023-01-08');
 
 -- --------------------------------------------------------
 
@@ -154,7 +157,7 @@ INSERT INTO `login` (`username`, `password`) VALUES
 --
 
 CREATE TABLE `mitra` (
-  `id_mitra` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nama_mitra` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `alamat_mitra` varchar(255) NOT NULL,
@@ -165,7 +168,8 @@ CREATE TABLE `mitra` (
 -- Dumping data untuk tabel `mitra`
 --
 
-INSERT INTO `mitra` (`id_mitra`, `nama_mitra`, `type`, `alamat_mitra`, `no_telepon`) VALUES
+INSERT INTO `mitra` (`id`, `nama_mitra`, `type`, `alamat_mitra`, `no_telepon`) VALUES
+(0, 'Yuyun', 'Tetap', 'Kota Ponorogo', '09826738'),
 (2, 'Maju', 'Tetap', 'Jl. Kali', '1324'),
 (3, 'Indah A', 'Tetap', 'Jl. Kali', '1324'),
 (5, 'dian', '-', 'jl senayan', '0854837461723');
@@ -177,7 +181,7 @@ INSERT INTO `mitra` (`id_mitra`, `nama_mitra`, `type`, `alamat_mitra`, `no_telep
 --
 
 CREATE TABLE `pesanan` (
-  `id_order` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nama_mitra` varchar(255) NOT NULL,
   `tanggal_pemesanan` date NOT NULL,
   `jumlah_pesanan` varchar(255) NOT NULL,
@@ -188,10 +192,10 @@ CREATE TABLE `pesanan` (
 -- Dumping data untuk tabel `pesanan`
 --
 
-INSERT INTO `pesanan` (`id_order`, `nama_mitra`, `tanggal_pemesanan`, `jumlah_pesanan`, `nama_produk`) VALUES
-(1, 'maju', '0000-00-00', '11', 'kertas'),
-(3, 'jaya', '0000-00-00', '13', 'baju'),
-(4, 'indahh', '0000-00-00', '2', 'kertas');
+INSERT INTO `pesanan` (`id`, `nama_mitra`, `tanggal_pemesanan`, `jumlah_pesanan`, `nama_produk`) VALUES
+(5, 'Maju', '2023-01-01', '21', 'crayon'),
+(6, 'Indah A', '2023-01-03', '12', 'mie sedap'),
+(7, 'Yuyun', '2023-01-04', '13', 'mie sedap');
 
 -- --------------------------------------------------------
 
@@ -231,7 +235,12 @@ INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama_produk`, `type`, `Jenis`
 --
 
 CREATE TABLE `surat_jalan` (
-  `id_suratjalan` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `nama_mitra` varchar(100) NOT NULL,
+  `nama_produk` varchar(100) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `tanggal_pengiriman` varchar(100) NOT NULL,
+  `jumlah_pengiriman` varchar(100) NOT NULL,
   `metode_pengiriman` varchar(255) NOT NULL,
   `nomer_kendaraan` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -240,8 +249,8 @@ CREATE TABLE `surat_jalan` (
 -- Dumping data untuk tabel `surat_jalan`
 --
 
-INSERT INTO `surat_jalan` (`id_suratjalan`, `metode_pengiriman`, `nomer_kendaraan`) VALUES
-(2, 'atm', 'j232ae');
+INSERT INTO `surat_jalan` (`id`, `nama_mitra`, `nama_produk`, `alamat`, `tanggal_pengiriman`, `jumlah_pengiriman`, `metode_pengiriman`, `nomer_kendaraan`) VALUES
+(5, 'Maju', 'crayon', 'Madiun Kota', '2023-01-10', '2', 'JNE', 'AE 123 BER');
 
 -- --------------------------------------------------------
 
@@ -271,7 +280,7 @@ INSERT INTO `user` (`id_user`, `name`, `username`, `password`) VALUES
 -- Indeks untuk tabel `invoice`
 --
 ALTER TABLE `invoice`
-  ADD PRIMARY KEY (`id_invoice`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `jenis`
@@ -295,13 +304,13 @@ ALTER TABLE `login`
 -- Indeks untuk tabel `mitra`
 --
 ALTER TABLE `mitra`
-  ADD PRIMARY KEY (`id_mitra`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
-  ADD PRIMARY KEY (`id_order`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `produk`
@@ -314,7 +323,7 @@ ALTER TABLE `produk`
 -- Indeks untuk tabel `surat_jalan`
 --
 ALTER TABLE `surat_jalan`
-  ADD PRIMARY KEY (`id_suratjalan`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `user`
@@ -330,7 +339,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id_invoice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenis`
@@ -348,13 +357,13 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_jalan`
 --
 ALTER TABLE `surat_jalan`
-  MODIFY `id_suratjalan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

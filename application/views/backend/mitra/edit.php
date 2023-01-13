@@ -7,8 +7,8 @@
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" role="form" action="<?php echo base_url('admin/mitra/proses_edit_data/' . $mitra['id_mitra']) ?>">
-                <input type="hidden" name="id" value="<?php echo $mitra['id_mitra'] ?>" id="id">
+              <form method="post" role="form" action="<?php echo base_url('admin/mitra/proses_edit_data/' . $mitra['id']) ?>">
+                <input type="hidden" name="id" value="<?php echo $mitra['id'] ?>" id="id">
                   <div class="form-group">
                     <label for="nama_mitra">Nama Mitra</label>
                     <input type="text" name="nama_mitra" class="form-control" id="nama_mitra" value="<?php echo $mitra['nama_mitra'] ?>" placeholder="Masukkan Kode Mitra"required>

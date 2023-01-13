@@ -7,15 +7,31 @@
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" role="form" action="<?php echo base_url('admin/invoice/proses_edit_data/' . $invoice['id_invoice']) ?>">
-                <input type="hidden" name="id" value="<?php echo $invoice['id_invoice'] ?>" id="id">
+              <form method="post" role="form" action="<?php echo base_url('admin/invoice/proses_edit_data/' . $invoice['id']) ?>">
+                <input type="hidden" name="id" value="<?php echo $invoice['id'] ?>" id="id">
                   <div class="form-group">
-                    <label for="nama_mitra">Nama Mitra</label>
-                    <input type="text" name="nama_mitra" class="form-control" id="nama_mitra" value="<?php echo $invoice['nama_mitra'] ?>" placeholder="Masukkan Kode Mitra">
-                  </div>
+                  <label for="name">Nama Mitra</label>
+                            <div class="form-group">
+                               <select required name="nama_mitra"class="form-control">
+        	                       
+                                    <option value="">--Pilih Mitra--</option>
+                                <?php                                
+                                   foreach ($pelanggan as $dxd) {  
+                                       
+		                             echo "<option value='".$dxd->nama_mitra."'>".$dxd->nama_mitra."</option>";
+		                                               }
+		                                       echo"
+		                                    </select>"
+	                              	?>
+                                </div>
+                            </div>
                   <div class="form-group">
                     <label for="jumlah_pengiriman">Jumlah Pengiriman</label>
-                    <input type="text" class="form-control" name="jumlah_pengiriman" id="jumlah_pengiriman" value="<?php echo $invoice['jumlah_pengiriman'] ?>" placeholder="Masukkan Jumlah">
+                    <input type="text" class="form-control" name="jumlah_pengiriman" id="jumlah_pengiriman" value="<?php echo $invoice['jumlah_pengiriman'] ?>" placeholder="Masukkan jumlah_pengiriman"required>
+                  </div>
+                  <div class="form-group">
+                    <label for="alamat">Alamat Mitra</label>
+                    <input type="text" class="form-control" name="alamat" id="alamat" value="<?php echo $invoice['alamat'] ?>" placeholder="Masukkan Alamat Mitra" required>
                   </div>
                 </div>
                 <div class="card-footer">

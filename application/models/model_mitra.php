@@ -15,8 +15,11 @@ class Model_mitra extends CI_Model {
   }
   public function get_mitra($id){
 
-    return $this->db->get_where('mitra', ['id_mitra'=>$id])-> row_array();
+    return $this->db->get_where('mitra', ['id'=>$id])-> row_array();
 
+}
+public function halamanUpdate($where, $table) {
+    return $this->db->get_where($table, $where);
 }
 
 public function proses_edit()
@@ -28,7 +31,7 @@ public function proses_edit()
         "no_telepon" => $this->input->post('no_telepon')
     ];
 
-    $this->db->where('id_mitra', $this->input->post('id'));
+    $this->db->where('id', $this->input->post('id'));
     $this->db->update('mitra', $data);
 }
 

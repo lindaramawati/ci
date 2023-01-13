@@ -17,17 +17,17 @@
         </tr>
 
         <?php 
-        $no=1;
-        foreach ($produk as $produk): ?>
+        $no = 1;
+        foreach ($produk as $b) : ?>
 
         <tr>
-            <td><?php echo $no++ ?></td>
-            <td><?php echo $produk->kode_produk ?></td>
-            <td><?php echo $produk->nama_produk ?></td>
-            <td><?php echo $produk->type ?></td>
-            <td><?php echo $produk->Jenis ?></td>
-            <td><?php echo $produk->merk_produk ?></td>
-            <td><?php echo $produk->seri_produk ?></td>
+            <td><?= $b['id_produk']; ?></td>
+            <td><?= $b['kode_produk']; ?></td>
+            <td><?= $b['nama_produk']; ?></td>
+            <td><?= $b['type']; ?></td>
+            <td><?= $b['nama_kategori']; ?></td>
+            <td><?= $b['merk_produk']; ?></td>
+            <td><?= $b['seri_produk']; ?></td>
         </tr>
 
         <?php endforeach; ?>

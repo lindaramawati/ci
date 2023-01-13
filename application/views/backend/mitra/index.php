@@ -44,10 +44,9 @@
                     <td><?php echo $mitra->type ?></td>
                     <td><?php echo $mitra->alamat_mitra ?></td>
                     <td><?php echo $mitra->no_telepon ?></td>
-                    <td>
                         <td>
                             <?php echo anchor(
-                                'admin/mitra/edit/' . $mitra->id_mitra,
+                                'admin/mitra/edit/' . $mitra->id,
                                 '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
                             ) ?>
                         </td>
@@ -55,11 +54,11 @@
                         <td>
                             <!-- <a class="btn btn-danger btn-sm" 
                             onclick="return confirm('Apakah anda yakin ingin menghapus data?')"
-                            href="<?php echo base_url('admin/mitra/hapus/') ?>/<?php echo $mitra->id_mitra ?>">
+                            href="<?php echo base_url('admin/mitra/hapus/') ?>/<?php echo $mitra->id ?>">
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                            <a onclick="deleteConfirm('<?php echo site_url('admin/mitra/hapus/' . $mitra->id_mitra) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                            <a onclick="deleteConfirm('<?php echo site_url('admin/mitra/hapus/' . $mitra->id) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
                         </td>
                     </td>
                     

@@ -13,9 +13,16 @@ class Model_pesanan extends CI_Model {
     public function tampilData() {
     return $this->db->get_where("pesanan");
   }
+  public function tampilId($id) {
+        $query = $this->db->query("SELECT * FROM pesanan WHERE id ='$id'");
+        return $query->result();
+}
+  public function halamanUpdate($where, $table) {
+    return $this->db->get_where($table, $where);
+}
   public function get_order($id){
 
-    return $this->db->get_where('pesanan', ['id_order'=>$id])-> row_array();
+    return $this->db->get_where('pesanan', ['id'=>$id])-> row_array();
 
 }
 
@@ -28,7 +35,7 @@ public function proses_edit()
         "nama_produk" => $this->input->post('nama_produk')
     ];
 
-    $this->db->where('id_order', $this->input->post('id'));
+    $this->db->where('id', $this->input->post('id'));
     $this->db->update('pesanan', $data);
 }
 

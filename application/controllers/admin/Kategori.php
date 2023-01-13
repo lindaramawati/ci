@@ -15,7 +15,7 @@ class kategori extends CI_Controller {
 
 		
 		
-		$data['page_title']       = 'Daftar Produk';
+		$data['page_title']       = 'Daftar Kategori';
 		$this->load->model('model_produk');
 		$data['kategori']= $this->model_produk->datakategori()->result();
 		$this->load->view('backend/template/meta', $data);
@@ -95,4 +95,29 @@ class kategori extends CI_Controller {
 		</div>');
 		redirect(base_url('admin/kategori/index'));
 	}
+
+	public function print()
+		{
+			$this->load->model('model_kategori');
+			$data['kategori'] = $this->model_kategori->tampilData()->result();
+			
+	
+			$this->load->view('backend/kategori/print', $data);
+		} 
+
+    public function search()
+    {
+		$data['page_title']       = ' Data kategori';
+		$this->load->model('model_kategori');
+        $keyword = $this->input->post('keyword');
+        $data['kategori'] = $this->model_kategori->get_keyword($keyword);
+
+		$this->load->view('backend/template/meta', $data);
+		$this->load->view('backend/template/navbar');
+		$this->load->view('backend/template/sidebar');
+		$this->load->view('backend/template/header');
+		$this->load->view('backend/kategori/index');
+		$this->load->view('backend/template/footer');
+		$this->load->view('backend/template/js');
+    }
 }

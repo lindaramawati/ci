@@ -26,8 +26,16 @@
                                 </div>
                             </div>
                   <div class="form-group">
-                    <label for="jumlah_pengiriman">Jumlah Pengiriman</label>
+                    <label for="alamat">Jumlah Pengiriman</label>
                     <input type="text" class="form-control" name="jumlah_pengiriman" id="jumlah_pengiriman" placeholder="Masukkan Jumlah">
+                  </div>
+                  <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Jumlah">
+                  </div>
+                  <div class="form-group">
+                    <label for="tanggal_pengiriman">Tanggal Pengiriman</label>
+                    <input type="date" class="form-control" name="tanggal_pengiriman" id="tanggal_pengiriman" placeholder="Masukkan Tanggal">
                   </div>
                 </div>
                 <div class="card-footer">

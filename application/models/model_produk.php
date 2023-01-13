@@ -26,6 +26,12 @@ class Model_produk extends CI_Model {
 
     
   }
+
+  public function tampilData1() {
+    return $this->db->get_where("produk");
+  }
+ 
+
   public function tampilJenis() {
     return $this->db->get_where
     ("kategori");
@@ -111,13 +117,15 @@ public function proses_edit_kategori()
     public function get_keyword($keyword){
         $this->db->select('*');
         $this->db->from('produk');
+        $this->db->join('kategori', 'produk.Jenis = kategori.id_kategori');
+        $this->db->order_by('id_produk');
         $this->db->like('kode_produk', $keyword);
         $this->db->or_like('nama_produk', $keyword);
         $this->db->or_like('type', $keyword);
-        $this->db->or_like('Jenis', $keyword);
+        $this->db->or_like('jenis', $keyword);
         $this->db->or_like('merk_produk', $keyword);
         $this->db->or_like('seri_produk', $keyword);
-        return $this->db->get()->result();
+        return $this->db->get()->result_array();
     }
 }
 

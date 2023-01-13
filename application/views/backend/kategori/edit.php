@@ -13,11 +13,11 @@
                   
                   <div class="form-group">
                     <label for="kode_kategori">Kode Kategori</label>
-                    <input type="text" class="form-control" name="kode_kategori" id="kode_kategori" value="<?php echo $kategori['kode_kategori'] ?>" placeholder="Masukkan Kode Kategori">
+                    <input type="text" class="form-control" name="kode_kategori" id="kode_kategori" value="<?php echo $kategori['kode_kategori'] ?>" placeholder="Masukkan Kode Kategori" required>
                   </div>
                   <div class="form-group">
                     <label for="nama_kategori">Nama kategori</label>
-                    <input type="text" name="nama_kategori" class="form-control" id="nama_kategori" value="<?php echo $kategori['nama_kategori'] ?>" placeholder="Masukkan Nama Kategori">
+                    <input type="text" name="nama_kategori" class="form-control" id="nama_kategori" value="<?php echo $kategori['nama_kategori'] ?>" placeholder="Masukkan Nama Kategori" required>
                   </div>
                   
                 </div>

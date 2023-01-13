@@ -43,16 +43,9 @@
                     <td><?php echo $pesanan->tanggal_pemesanan ?></td>
                     <td><?php echo $pesanan->jumlah_pesanan ?></td>
                     <td><?php echo $pesanan->nama_produk ?></td>
-                    <td>
-                       
-                    <?php echo anchor(
-                                'admin/pesanan/detail/' . $pesanan->id_order,
-                                '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
-                            ) ?>
-                        </td>
                         <td>
                             <?php echo anchor(
-                                'admin/pesanan/edit/' . $pesanan->id_order,
+                                'admin/pesanan/edit/' . $pesanan->id,
                                 '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"><style="color: white"></i></div>'
                             ) ?>
                         </td>
@@ -60,11 +53,11 @@
                         <td>
                             <!-- <a class="btn btn-danger btn-sm" 
                             onclick="return confirm('Apakah anda yakin ingin menghapus data?')"
-                            href="<?php echo base_url('admin/pesanan/hapus/') ?>/<?php echo $pesanan->id_order ?>">
+                            href="<?php echo base_url('admin/pesanan/hapus/') ?>/<?php echo $pesanan->id ?>">
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                            <a onclick="deleteConfirm('<?php echo site_url('admin/pesanan/hapus/' . $pesanan->id_order) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                            <a onclick="deleteConfirm('<?php echo site_url('admin/pesanan/hapus/' . $pesanan->id) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
                         </td>
                     </td>
                   <?php endforeach; ?>

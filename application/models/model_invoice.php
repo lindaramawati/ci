@@ -13,16 +13,16 @@ class Model_invoice extends CI_Model {
     public function tampilData() {
     return $this->db->get_where("invoice");
   }
-  public function get_mitra() {
+  public function get_mitra($id = null) {
     return $this->db->get_where("mitra", array('nama_mitra' => $this->session->userdata('nama_mitra')));
     return $this->db->get_where("invoice", array('alamat_mitra' => $this->session->userdata('alamat_mitra')));
-    return $this->db->get_where("invoice", array('id_invoice' => $this->session->userdata('id_invoice')));
+    return $this->db->get_where("invoice", array('id' => $this->session->userdata('id')));
     return $this->db->get_where("invoice", array('jumalh_pengiriman' => $this->session->userdata('jumalh_pengiriman')));
     
   }
   public function get_invoice($id){
 
-    return $this->db->get_where('invoice', ['id_invoice'=>$id])-> row_array();
+    return $this->db->get_where('invoice', ['id'=>$id])-> row_array();
 
 }
     public function halamanUpdate($where, $table) {
@@ -37,7 +37,7 @@ public function proses_edit()
         "alamat" => $this->input->post('alamat')
     ];
 
-    $this->db->where('id_invoice', $this->input->post('id'));
+    $this->db->where('id', $this->input->post('id'));
     $this->db->update('invoice', $data);
 }
 

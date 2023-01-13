@@ -35,33 +35,28 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a  class="nav-link">
-              <i class="nav-icon fas fa-file-invoice-dollar"></i>
+            <a href="<?= base_url('admin/pesanan') ?>" class="nav-link">
+              <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
-                Penjualan
-                <i class="fas fa-angle-left right"></i>
+                Order
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('admin/invoice') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/pesanan') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Order</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/surat_jalan') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Surat Jalan</p>
-                </a>
-              </li>
-            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="<?= base_url('admin/invoice') ?>" class="nav-link">
+              <i class="nav-icon fas fa-car-side"></i>
+              <p>
+                Invoice
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="<?= base_url('admin/surat_jalan') ?>" class="nav-link">
+              <i class="nav-icon fas fa-user-friends"></i>
+              <p>
+                Surat Jalan
+              </p>
+            </a>
           </li>
           <li class="nav-item has-treeview">
             <a href="<?= base_url('admin/produk') ?>" class="nav-link">
