@@ -38,11 +38,11 @@ class Pesanan extends CI_Controller {
 	public function proses_tambah(){
 
 		$this->load->model('model_pesanan', 'admin');
-		$kode_terakhir = $this->admin->getMax('pesanan', 'id_order');
+		$kode_terakhir = $this->admin->getMax('pesanan', 'id');
         $kode_tambah = substr($kode_terakhir, -6, 6);
         $kode_tambah++;
         $number = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
-        $data['id_order'] = 'P' . $number;
+        $data['id'] = 'P' . $number;
 
 
 		$nama_mitra = $this->input->post('nama_mitra');
@@ -95,8 +95,8 @@ class Pesanan extends CI_Controller {
 		redirect('admin/pesanan/index');
 	}
 
-	public function hapus($id_order){
-		$this->db->where('id_order', $id_order);
+	public function hapus($id){
+		$this->db->where('id', $id);
 		$this->db->delete('pesanan');
 		$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
 		<strong>Data berhasil dihapus</strong>
@@ -107,7 +107,7 @@ class Pesanan extends CI_Controller {
 		redirect(base_url('admin/pesanan/index'));
 	}
 
-	public function detail($id_order){
+	public function detail($id){
 		$data['page_title']       = 'Detail Data Pesanan';
 		$this->load->model('model_pesanan');
 		$data['pesanan']= $this->model_pesanan->tampilData()->result();

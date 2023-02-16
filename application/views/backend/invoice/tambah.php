@@ -33,6 +33,13 @@
                     <label for="alamat">Alamat</label>
                     <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Jumlah">
                   </div>
+<<<<<<< HEAD
+=======
+                  <div class="form-group">
+                    <label for="tanggal_pengiriman">Tanggal Pengiriman</label>
+                    <input type="date" class="form-control" name="tanggal_pengiriman" id="tanggal_pengiriman" placeholder="Masukkan Tanggal">
+                  </div>
+>>>>>>> 82d8910163547ddac04601b7c65a60834b28b238
                 </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>

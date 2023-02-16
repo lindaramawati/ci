@@ -27,6 +27,9 @@
                   <thead>
                   <tr>
                     <th>No</th>
+                    <th>Nama Mitra</th>
+                    <th>Nama Produk</th>
+                    <th>Alamat</th>
                     <th>Metode Pengiriman</th>
                     <th>Nomer Kendaraan</th>
                     <th>Edit</th>
@@ -38,11 +41,23 @@
                   ?>
                   <tbody>
                     <td><?php echo $no++?></td>
+                    <td><?php echo $surat_jalan->nama_mitra ?></td>
+                    <td><?php echo $surat_jalan->nama_produk ?></td>
+                    <td><?php echo $surat_jalan->alamat ?></td>
                     <td><?php echo $surat_jalan->metode_pengiriman ?></td>
                     <td><?php echo $surat_jalan->nomer_kendaraan ?></td>
+<<<<<<< HEAD
+=======
+                    <td>
+                      <?php echo anchor(
+                                'admin/surat_jalan/detail/' . $surat_jalan->id,
+                                '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
+                            ) ?>
+                        </td>
+>>>>>>> 82d8910163547ddac04601b7c65a60834b28b238
                         <td>
                             <?php echo anchor(
-                                'admin/surat_jalan/edit/' . $surat_jalan->id_suratjalan,
+                                'admin/surat_jalan/edit/' . $surat_jalan->id,
                                 '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
                             ) ?>
                         </td>
@@ -50,11 +65,11 @@
                         <td>
                             <!-- <a class="btn btn-danger btn-sm" 
                             onclick="return confirm('Apakah anda yakin ingin menghapus data?')"
-                            href="<?php echo base_url('admin/surat_jalan/hapus/') ?>/<?php echo $surat_jalan->id_suratjalan ?>">
+                            href="<?php echo base_url('admin/surat_jalan/hapus/') ?>/<?php echo $surat_jalan->id ?>">
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                            <a onclick="deleteConfirm('<?php echo site_url('admin/surat_jalan/hapus/' . $surat_jalan->id_suratjalan) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                            <a onclick="deleteConfirm('<?php echo site_url('admin/surat_jalan/hapus/' . $surat_jalan->id) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
                         </td>
                   <?php endforeach; ?>
                 </table>

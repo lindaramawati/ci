@@ -32,11 +32,11 @@ class Mitra extends CI_Controller {
 	public function proses_tambah(){
 
 		$this->load->model('model_mitra', 'admin');
-		$kode_terakhir = $this->admin->getMax('mitra', 'id_mitra');
+		$kode_terakhir = $this->admin->getMax('mitra', 'id');
         $kode_tambah = substr($kode_terakhir, -6, 6);
         $kode_tambah++;
         $number = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
-        $data['id_mitra'] = 'P' . $number;
+        $data['id'] = 'P' . $number;
 
 
 		$nama_mitra = $this->input->post('nama_mitra');
@@ -89,8 +89,8 @@ class Mitra extends CI_Controller {
 		redirect('admin/mitra/index');
 	}
 
-	public function hapus($id_mitra){
-		$this->db->where('id_mitra', $id_mitra);
+	public function hapus($id){
+		$this->db->where('id', $id);
 		$this->db->delete('mitra');
 		$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
 		<strong>Data berhasil dihapus</strong>

@@ -7,8 +7,8 @@
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" role="form" action="<?php echo base_url('admin/invoice/proses_edit_data/' . $invoice['id_invoice']) ?>">
-                <input type="hidden" name="id" value="<?php echo $invoice['id_invoice'] ?>" id="id">
+              <form method="post" role="form" action="<?php echo base_url('admin/invoice/proses_edit_data/' . $invoice['id']) ?>">
+                <input type="hidden" name="id" value="<?php echo $invoice['id'] ?>" id="id">
                   <div class="form-group">
                   <label for="name">Nama Mitra</label>
                             <div class="form-group">
@@ -16,7 +16,11 @@
         	                       
                                     <option value="">--Pilih Mitra--</option>
                                 <?php                                
+<<<<<<< HEAD
                                    foreach ($invoice as $dxd) {  
+=======
+                                   foreach ($pelanggan as $dxd) {  
+>>>>>>> 82d8910163547ddac04601b7c65a60834b28b238
                                        
 		                             echo "<option value='".$dxd->nama_mitra."'>".$dxd->nama_mitra."</option>";
 		                                               }

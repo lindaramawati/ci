@@ -36,6 +36,7 @@
                     <th>Nama Mitra</th>
                     <th>Jumlah Pengiriman</th>
                     <th>Alamat</th>
+                    <th>Tanggal pengiriman</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -48,9 +49,19 @@
                     <td><?php echo $invoice->nama_mitra ?></td>
                     <td><?php echo $invoice->jumlah_pengiriman ?></td>
                     <td><?php echo $invoice->alamat ?></td>
+<<<<<<< HEAD
+=======
+                    <td><?php echo $invoice->tanggal_pengiriman ?></td>
+                    <td>
+                      <?php echo anchor(
+                                'admin/invoice/detail/' . $invoice->id,
+                                '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
+                            ) ?>
+                        </td>
+>>>>>>> 82d8910163547ddac04601b7c65a60834b28b238
                         <td>
                             <?php echo anchor(
-                                'admin/invoice/edit/' . $invoice->id_invoice,
+                                'admin/invoice/edit/' . $invoice->id,
                                 '<div class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></div>'
                             ) ?>
                         </td>
@@ -58,11 +69,11 @@
                         <td>
                             <!-- <a class="btn btn-danger btn-sm" 
                             onclick="return confirm('Apakah anda yakin ingin menghapus data?')"
-                            href="<?php echo base_url('admin/invoice/hapus/') ?>/<?php echo $invoice->id_invoice ?>">
+                            href="<?php echo base_url('admin/invoice/hapus/') ?>/<?php echo $invoice->id ?>">
                             <i class="fa fa-trash"></i>
                         </a> -->
 
-                            <a onclick="deleteConfirm('<?php echo site_url('admin/invoice/hapus/' . $invoice->id_invoice) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
+                            <a onclick="deleteConfirm('<?php echo site_url('admin/invoice/hapus/' . $invoice->id) ?>')" href="#!" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
                         </td>
 
                       <?php endforeach; ?>

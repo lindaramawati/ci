@@ -23,9 +23,9 @@ class Invoice extends CI_Controller {
 
 	public function tambah(){
 		$data['page_title']       = 'Tambah Data Invoice';
-		$this->load->model('model_mitra');
+		$this->load->model('model_pesanan');
 		$this->load->model('model_invoice');
-		$data['pelanggan'] = $this->model_mitra->tampilData()->result();
+		$data['pelanggan'] = $this->model_pesanan->tampilData()->result();
 		$data['invoice'] = $this->model_invoice->tampilData()->result();
 
 		$this->load->view('backend/template/meta', $data);
@@ -39,22 +39,30 @@ class Invoice extends CI_Controller {
 	public function proses_tambah(){
 
 		$this->load->model('model_invoice', 'admin');
-		$kode_terakhir = $this->admin->getMax('invoice', 'id_invoice');
+		$kode_terakhir = $this->admin->getMax('invoice', 'id');
         $kode_tambah = substr($kode_terakhir, -6, 6);
         $kode_tambah++;
         $number = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
-        $data['id_invoice'] = 'P' . $number;
+        $data['id'] = 'P' . $number;
 
 
 		$nama_mitra = $this->input->post('nama_mitra');
         $jumlah_pengiriman = $this->input->post('jumlah_pengiriman');
 		$alamat = $this->input->post('alamat');
+<<<<<<< HEAD
+=======
+		$tanggal_pengiriman = $this->input->post('tanggal_pengiriman');
+>>>>>>> 82d8910163547ddac04601b7c65a60834b28b238
 
 
         $ArrInsert = array(
         'nama_mitra' => $nama_mitra,
         'jumlah_pengiriman' => $jumlah_pengiriman,
 		'alamat' => $alamat,
+<<<<<<< HEAD
+=======
+		'tanggal_pengiriman' => $tanggal_pengiriman,
+>>>>>>> 82d8910163547ddac04601b7c65a60834b28b238
         );
 
         $this->db->insert('invoice', $ArrInsert);
@@ -71,6 +79,8 @@ class Invoice extends CI_Controller {
 	public function edit($id){
 		$data['page_title']       = 'Edit Data Invoice';
 		$this->load->model('model_invoice');
+		$this->load->model('model_pesanan');
+		$data['pelanggan'] = $this->model_pesanan->tampilData()->result();
 		$data['invoice'] = $this->model_invoice->get_invoice($id);
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
@@ -83,6 +93,7 @@ class Invoice extends CI_Controller {
 	public function proses_edit_data($id)
 	{
 		$this->load->model('model_invoice');
+
 		$this->model_invoice->proses_edit($id);
 		$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Data berhasil diubah</strong>
@@ -93,8 +104,8 @@ class Invoice extends CI_Controller {
 		redirect('admin/invoice/index');
 	}
 
-	public function hapus($id_invoice){
-		$this->db->where('id_invoice', $id_invoice);
+	public function hapus($id){
+		$this->db->where('id', $id);
 		$this->db->delete('invoice');
 		$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
 		<strong>Data berhasil dihapus</strong>
@@ -105,16 +116,19 @@ class Invoice extends CI_Controller {
 		redirect(base_url('admin/invoice/index'));
 	}
 	
-	public function detail($id_invoice){
-			$data['page_title']       = 'Detail Data Invoice';
+	public function detail($id = null){
+			$data['page_title']       = 'Invoice';
 			$this->load->model('model_invoice');
+			$this->load->model('model_pesanan');
 			// $data['mitra'] = $this->model_invoice->get_mitra();
-			$where = array('id_invoice' => $id_invoice);
+			$where = array('id' => $id);
 			// $this->load->model('MKegiatanCRUD');
 			$data['mitra'] = $this->model_invoice->halamanUpdate($where, 'invoice')->result();
-			$where = array('id_invoice' => $id_invoice);
+			$where = array('id' => $id);
 			// $this->load->model('MKegiatanCRUD');
 			$data['mitra'] = $this->model_invoice->halamanUpdate($where, 'invoice')->result();
+			$where = array('id' => $id);
+			$data['produk'] = $this->model_pesanan->halamanUpdate($where, 'pesanan')->result();
 			
 			
 			$this->load->view('backend/template/meta', $data);
