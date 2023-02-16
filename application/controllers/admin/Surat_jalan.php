@@ -118,11 +118,11 @@ class Surat_jalan extends CI_Controller {
         $data['suratjalan'] = $this->model_suratjalan->tampilData()->result();
 		
 
-		$this->load->view('backend/suratjalan/print', $data);
+		$this->load->view('backend/surat_jalan/print', $data);
     } 
 	public function search()
     {
-		$data['page_title']       = ' Data Invoice';
+		$data['page_title']       = ' Data Surat Jalan';
 		$this->load->model('model_suratjalan');
         $keyword = $this->input->post('keyword');
         $data['surat_jalan'] = $this->model_suratjalan->get_keyword($keyword);

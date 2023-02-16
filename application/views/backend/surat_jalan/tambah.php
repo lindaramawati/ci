@@ -11,11 +11,11 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="metode_pengiriman">Metode Pengiriman</label>
-                    <input type="text" name="metode_pengiriman" class="form-control" id="metode_pengiriman" placeholder="Masukkan Metode Pengiriman">
+                    <input type="text" class="form-control" name="metode_pengiriman" id="metode_pengiriman" placeholder="Masukkan Jumlah" required>
                   </div>
                   <div class="form-group">
                     <label for="nomer_kendaraan">Nomer Kendaraan</label>
-                    <input type="text" class="form-control" name="nomer_kendaraan" id="nomer_kendaraan" placeholder="Masukkan Nomer Kendaraan">
+                    <input type="text" class="form-control" name="nomer_kendaraan" id="nomer_kendaraan" placeholder="Masukkan Nomer Kencana" required>
                   </div>
                 </div>
                 <div class="card-footer">

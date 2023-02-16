@@ -11,11 +11,11 @@
                 <input type="hidden" name="id" value="<?php echo $surat_jalan['id_suratjalan'] ?>" id="id">
                   <div class="form-group">
                     <label for="metode_pengiriman">Metode Pengiriman</label>
-                    <input type="text" name="metode_pengiriman" class="form-control" id="metode_pengiriman" value="<?php echo $surat_jalan['metode_pengiriman'] ?>" placeholder="Masukkan Metode Pengiriman">
+                    <input type="text" name="metode_pengiriman" class="form-control" id="metode_pengiriman" value="<?php echo $surat_jalan['metode_pengiriman'] ?>" placeholder="Masukkan Metode Pengiriman" required>
                   </div>
                   <div class="form-group">
                     <label for="nomer_kendaraan">Nomer Kendaraan</label>
-                    <input type="text" class="form-control" name="nomer_kendaraan" id="nomer_kendaraan" value="<?php echo $surat_jalan['nomer_kendaraan'] ?>" placeholder="Masukkan Nomer Kendaraan">
+                    <input type="text" class="form-control" name="nomer_kendaraan" id="nomer_kendaraan" value="<?php echo $surat_jalan['nomer_kendaraan'] ?>" placeholder="Masukkan Nomer Kendaraan" required>
                   </div>
                 </div>
                 <div class="card-footer">

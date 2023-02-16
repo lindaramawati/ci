@@ -48,10 +48,13 @@ class Invoice extends CI_Controller {
 
 		$nama_mitra = $this->input->post('nama_mitra');
         $jumlah_pengiriman = $this->input->post('jumlah_pengiriman');
+		$alamat = $this->input->post('alamat');
+
 
         $ArrInsert = array(
         'nama_mitra' => $nama_mitra,
         'jumlah_pengiriman' => $jumlah_pengiriman,
+		'alamat' => $alamat,
         );
 
         $this->db->insert('invoice', $ArrInsert);

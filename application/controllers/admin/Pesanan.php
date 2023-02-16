@@ -22,9 +22,11 @@ class Pesanan extends CI_Controller {
 	public function tambah(){
 		$data['page_title']       = 'Tambah Data order';
 		$this->load->model('model_mitra');
+		$this->load->model('model_produk');
 		$this->load->model('model_invoice');
 		$data['pesanan'] = $this->model_invoice->tampilData()->result();
 		$data['pelanggan'] = $this->model_mitra->tampilData()->result();
+		$data['produk'] = $this->model_produk->tampilData1()->result();
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar');
 		$this->load->view('backend/template/sidebar');
@@ -130,7 +132,7 @@ class Pesanan extends CI_Controller {
 
 	public function search()
     {
-		$data['page_title']       = ' Data Invoice';
+		$data['page_title']       = ' Data Order';
 		$this->load->model('model_pesanan');
         $keyword = $this->input->post('keyword');
         $data['pesanan'] = $this->model_pesanan->get_keyword($keyword);

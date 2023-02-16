@@ -17,7 +17,7 @@
                           <?php $attributes = array('class' => 'row'); ?>
                           <?php echo form_open('admin/invoice/search',$attributes);?>
                               <input type="text" name="keyword" placeholder="Search" class="form-control col-md-5">
-                              <input type="submit" value="Cari" class="btn btn-warning col-md-1">
+                              <input type="submit" value="Cari" class="btn btn-info col-md-1">
                           <?php echo form_close();?>		
                       </td>
                 </tr>
@@ -48,13 +48,6 @@
                     <td><?php echo $invoice->nama_mitra ?></td>
                     <td><?php echo $invoice->jumlah_pengiriman ?></td>
                     <td><?php echo $invoice->alamat ?></td>
-                    <td>
-                      <?php echo anchor(
-                                'admin/invoice/detail/' . $invoice->id_invoice,
-                                '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
-                            ) ?>
-                        </td>
-
                         <td>
                             <?php echo anchor(
                                 'admin/invoice/edit/' . $invoice->id_invoice,

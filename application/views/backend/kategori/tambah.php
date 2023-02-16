@@ -12,11 +12,11 @@
                     
                   <div class="form-group">
                     <label for="kode_kategori">kode Kategori</label>
-                    <input type="text" class="form-control" name="kode_kategori" id="kode_kategori" placeholder="Masukkan Nomer Produk">
+                    <input type="text" class="form-control" name="kode_kategori" id="kode_kategori" placeholder="Masukkan Nomer Produk" required>
                   </div>
                   <div class="form-group">
                     <label for="nama_kategori">Nama Kategori</label>
-                    <input type="text" name="nama_kategori" class="form-control" id="nama_kategori" placeholder="Masukkan Nama Produk">
+                    <input type="text" name="nama_kategori" class="form-control" id="nama_kategori" placeholder="Masukkan Nama Produk" required>
                   </div>
                   
                 </div>

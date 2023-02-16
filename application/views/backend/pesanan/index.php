@@ -43,13 +43,6 @@
                     <td><?php echo $pesanan->tanggal_pemesanan ?></td>
                     <td><?php echo $pesanan->jumlah_pesanan ?></td>
                     <td><?php echo $pesanan->nama_produk ?></td>
-                    <td>
-                       
-                    <?php echo anchor(
-                                'admin/pesanan/detail/' . $pesanan->id_order,
-                                '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
-                            ) ?>
-                        </td>
                         <td>
                             <?php echo anchor(
                                 'admin/pesanan/edit/' . $pesanan->id_order,

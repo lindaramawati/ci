@@ -5,19 +5,29 @@
           <div class="col-12">
             <div class="card">
             <div class="card-header">
-                <a href="<?php echo base_url(); ?>admin/produk/index" class="btn btn-sm btn-warning btn-flat float-right"><i class="far fa-plus-square"></i> Tambah Produk</a>
+            <a href="<?php echo base_url(); ?>admin/kategori/tambah" class="btn btn-success"><i class="far fa-plus-square"></i> Tambah Kategori</a>
+            <a class="btn btn-primary" href="<?php echo base_url('admin/kategori/print') ?>"><i class="fas fa-fw fa-print"></i> Print</a>
+            <a href="<?php echo base_url(); ?>admin/produk" class="btn btn-warning float-right"><i class="far fa-plus-square"></i> Tambah Produk</a>
                 </div>
               <div class="card-header">
-                  <a href="<?php echo base_url(); ?>admin/kategori/tambah" class="btn btn-sm btn-info btn-flat"><i class="far fa-plus-square"></i> Tambah kategori</a>
+                  
               </div>
               <!-- /.card-header -->
               <div class="card-body">
               <?php echo $this->session->flashdata('message'); ?>
-
+              <tr>
+                      <td colspan="4">
+                          <?php $attributes = array('class' => 'row'); ?>
+                          <?php echo form_open('admin/kategori/search',$attributes);?>
+                              <input type="text" name="keyword" placeholder="Search" class="form-control col-md-5">
+                              <input type="submit" value="Cari" class="btn btn-info col-md-1">
+                          <?php echo form_close();?>		
+                      </td>
+                </tr>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>id Produk</th>
+                    <th>Nomer</th>
                     <th>Kode kategori</th>
                     <th>Nama kategori</th>
                   </tr>

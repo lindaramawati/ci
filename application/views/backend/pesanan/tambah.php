@@ -34,9 +34,21 @@
                     <input type="text" class="form-control" name="jumlah_pesanan" id="jumlah_pesanan" placeholder="Masukkan Jumlah Pesanan" required>
                   </div>
                   <div class="form-group">
-                    <label for="nama_produk">Nama Produk</label>
-                    <input type="text" class="form-control" name="nama_produk" id="nama_produk" placeholder="Masukkan Nama Produk" required>
-                  </div>
+                  <label for="name">Nama Produk</label>
+                            <div class="form-group">
+                               <select required name="nama_produk"class="form-control">
+        	                       
+                                    <option value="">--Pilih Produk--</option>
+                                <?php                                
+                                   foreach ($produk as $dxd) {  
+                                       
+		                             echo "<option value='".$dxd->nama_produk."'>".$dxd->nama_produk."</option>";
+		                                               }
+		                                       echo"
+		                                    </select>"
+	                              	?>
+                                </div>
+                            </div>
                 </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>

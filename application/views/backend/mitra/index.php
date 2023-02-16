@@ -44,7 +44,6 @@
                     <td><?php echo $mitra->type ?></td>
                     <td><?php echo $mitra->alamat_mitra ?></td>
                     <td><?php echo $mitra->no_telepon ?></td>
-                    <td>
                         <td>
                             <?php echo anchor(
                                 'admin/mitra/edit/' . $mitra->id_mitra,

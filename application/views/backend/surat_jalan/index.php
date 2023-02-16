@@ -16,7 +16,7 @@
                           <?php $attributes = array('class' => 'row'); ?>
                           <?php echo form_open('admin/surat_jalan/search',$attributes);?>
                               <input type="text" name="keyword" placeholder="Search" class="form-control col-md-5">
-                              <input type="submit" value="Cari" class="btn btn-warning col-md-1">
+                              <input type="submit" value="Cari" class="btn btn-info col-md-1">
                           <?php echo form_close();?>		
                       </td>
                 </tr>
@@ -40,14 +40,6 @@
                     <td><?php echo $no++?></td>
                     <td><?php echo $surat_jalan->metode_pengiriman ?></td>
                     <td><?php echo $surat_jalan->nomer_kendaraan ?></td>
-
-                    <td>
-                      <?php echo anchor(
-                                'admin/surat_jalan/detail/' . $surat_jalan->id_suratjalan,
-                                '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
-                            ) ?>
-                        </td>
-
                         <td>
                             <?php echo anchor(
                                 'admin/surat_jalan/edit/' . $surat_jalan->id_suratjalan,

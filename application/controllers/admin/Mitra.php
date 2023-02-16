@@ -15,7 +15,7 @@ class Mitra extends CI_Controller {
 		$this->load->view('backend/template/navbar');
 		$this->load->view('backend/template/sidebar');
 		$this->load->view('backend/template/header');
-		$this->load->view('backend/mitra/index');
+		$this->load->view('backend/mitra/index', $data);
 		$this->load->view('backend/template/footer');
 		$this->load->view('backend/template/js');
 	}
@@ -123,7 +123,7 @@ class Mitra extends CI_Controller {
 
 	public function search()
     {
-		$data['page_title']       = ' Data Invoice';
+		$data['page_title']       = ' Data Mitra';
 		$this->load->model('model_mitra');
         $keyword = $this->input->post('keyword');
         $data['mitra'] = $this->model_mitra->get_keyword($keyword);

@@ -14,12 +14,12 @@
 
         <?php 
         $no=1;
-        foreach ($surat_jalan as $surat_jalan): ?>
+        foreach ($suratjalan as $suratjalan): ?>
 
         <tr>
             <td><?php echo $no++ ?></td>
-            <td><?php echo $surat_jalan->metode_pengiriman ?></td>
-            <td><?php echo $surat_jalan->nomer_kendaraan ?></td>
+            <td><?php echo $suratjalan->metode_pengiriman ?></td>
+            <td><?php echo $suratjalan->nomer_kendaraan ?></td>
         </tr>
 
         <?php endforeach; ?>

@@ -191,7 +191,7 @@ class Produk extends CI_Controller {
 	public function print()
     {
 		$this->load->model('model_produk');
-        $data['produk'] = $this->model_produk->tampilData()->result();
+        $data['produk'] = $this->model_produk->tampilData();
 		
 
 		$this->load->view('backend/produk/print', $data);

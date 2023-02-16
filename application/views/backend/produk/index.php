@@ -30,7 +30,7 @@
                     <th>Kode Produk</th>
                     <th>Nama Produk</th>
                     <th>Type</th>
-                    <th>jenis</th>
+                    <th>Jenis</th>
                     <th>Merk</th>
                     <th>Seri</th>
                     <th>Aksi</th>
@@ -49,13 +49,7 @@
                     <td><?= $b['merk_produk']; ?></td>
                     <td><?= $b['seri_produk']; ?></td>
 
-                    <td>
-                       
-                    <?php echo anchor(
-                                'admin/produk/detail/' . $b['id_produk'],
-                                '<div class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></div>'
-                            ) ?>
-                        </td>
+                    
                         <td>
                             <?php echo anchor(
                                 'admin/produk/edit/' . $b['id_produk'],
